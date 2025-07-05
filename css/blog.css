@@ -8,16 +8,18 @@
 
 #blog-header>h1 {
     font-size: 4rem;
+    font-weight: 300;
+
 }
 
 #blog-header>img {
     border-radius: 4px;
-    height: 18rem;
+    height: 24rem;
     margin-top: 4rem;
 }
 
 #blog-content {
-    margin-top: 12rem;
+    margin-top: 8rem;
 }
 
 #blog-content-header {
@@ -50,8 +52,6 @@
     border: none;
     height: auto;
     font-size: 1rem;
-    color: #BABABA;
-
     padding-left: 1rem;
     padding-right: 1rem;
     padding-top: 0.5rem;
@@ -117,11 +117,6 @@
     border-radius: 4px;
 }
 
-.post-item h2 {
-    font-weight: 400;
-}
-
-
 .other-info {
     display: flex;
     justify-content: space-between;
@@ -140,15 +135,14 @@
 }
 
 #load-more button {
-    border-radius: 4px;
+    border-radius: 21px;
     background-color: #2b2b2b;
     border: none;
     height: auto;
     font-size: 1rem;
-    color: #BABABA;
 
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
 }

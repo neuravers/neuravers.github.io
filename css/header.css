@@ -2,7 +2,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 1.25rem;
     margin-bottom: 8rem;
     position: sticky;
     top: 0;
@@ -16,6 +16,7 @@ header {
 
 #blog-name {
     font-weight: 600;
+
 }
 
 #menu-container>img {

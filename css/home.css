@@ -7,6 +7,7 @@
 
 #greeting>h1 {
     font-size: 4rem;
+    font-weight: 300;
 }
 
 #greeting>p {
@@ -16,7 +17,7 @@
 
 
 #latest-news {
-    margin-top: 12rem;
+    margin-top: 8rem;
 }
 
 #news-container {
@@ -45,10 +46,6 @@
     border-radius: 4px;
 }
 
-.news-item h2 {
-    font-weight: 400;
-}
-
 .other-info {
     display: flex;
     justify-content: space-between;
@@ -66,17 +63,15 @@
 }
 
 #load-more button {
-    border-radius: 4px;
+    border-radius: 21px;
     background-color: #2b2b2b;
     border: none;
     height: auto;
     font-size: 1rem;
-    color: #BABABA;
-
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
 }
 
 #best-of-posts {
@@ -112,10 +107,6 @@
     flex-direction: column;
     gap: 1rem;
     width: calc(100vw - 5rem);
-}
-
-.post-item h2 {
-    font-weight: 400;
 }
 
 .post-item img {

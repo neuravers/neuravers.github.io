@@ -7,16 +7,17 @@
 
 #contact-header>h1 {
     font-size: 4rem;
+    font-weight: 300;
 }
 
 #contact-header>img {
     border-radius: 4px;
-    height: 18rem;
+    height: 24rem;
     margin-top: 4rem;
 }
 
 #contact-form {
-    margin-top: 12rem;
+    margin-top: 8rem;
 }
 
 #contact-form-header {
@@ -52,7 +53,6 @@ textarea {
     border: none;
     height: auto;
     font-size: 1rem;
-    color: #BABABA;
     padding-left: 1rem;
     padding-right: 1rem;
     padding-top: 0.5rem;
