@@ -47,7 +47,10 @@ footer {
     padding: 0.5rem 1rem;
 }
 
-
+#newsletter p:nth-child(4) {
+    font-size: 0.75rem;
+    color: #999999;
+}
 
 #footer-content {
     margin-top: 4rem;
