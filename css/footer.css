@@ -17,6 +17,7 @@ footer {
     flex-direction: column;
     text-align: center;
     gap: 1rem;
+    width: 100%;
 }
 
 #newsletter-form {
@@ -26,6 +27,7 @@ footer {
     flex-direction: row;
     margin-bottom: 1rem;
     width: 100%;
+    max-width: 600px;
 }
 
 #newsletter-form input {

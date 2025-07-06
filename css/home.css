@@ -33,16 +33,9 @@
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
         grid-row-gap: 4rem;
-        grid-template-rows: 1fr 1fr;
+        grid-auto-rows: auto;
+        grid-template-rows: none;
 
-    }
-
-    .cart-container-horizontal .cart {
-        width: 100% !important;
-    }
-
-    .cart-container-horizontal .cart img {
-        height: calc(100vw - 60vw);
     }
 
     .cart-container-horizontal .cart:first-child {
