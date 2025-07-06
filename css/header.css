@@ -183,3 +183,17 @@ footer.menu-open {
     transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
 
 }
+
+@media (min-width: 600px) {
+    header {
+        padding: 1.25rem 6vw;
+    }
+
+    #menu-container nav {
+        margin-right: 6vw;
+    }
+
+    #language-selector {
+        margin-right: 6vw;
+    }
+}
