@@ -71,3 +71,14 @@
     align-items: center;
     justify-content: center;
 }
+
+@media (min-width: 768px) {
+    .cart-container-horizontal {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        grid-row-gap: 4rem;
+        grid-auto-rows: auto;
+        grid-template-rows: none;
+    }
+}

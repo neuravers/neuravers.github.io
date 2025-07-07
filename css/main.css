@@ -40,7 +40,7 @@ h3 {
 }
 
 h4 {
-    font-size: 0.75rem;
+    font-size: 1rem;
     font-weight: 300;
     color: #999999;
 }
@@ -133,6 +133,7 @@ textarea {
 
 .cart-container .cart:last-child {
     margin-right: 3.5rem;
+    width: 100%;
 }
 
 .cart-container-horizontal {
@@ -177,7 +178,7 @@ textarea {
 }
 
 .rounded-button {
-    border-radius: 21px;
+    border-radius: 100px;
     background-color: #2b2b2b;
     border: none;
     height: auto;
@@ -208,6 +209,10 @@ textarea {
         margin-right: -10vw;
         grid-auto-columns: calc(100% - 10vw - 1rem);
     }
+
+    .cart-container .cart:last-child {
+        margin-right: 10vw;
+    }
 }
 
 @media (min-width: 600px) {
@@ -218,6 +223,6 @@ textarea {
 
 @media (min-width: 700px) {
     .cart-container {
-        grid-auto-columns: calc(100% - 40vw - 1rem);
+        grid-auto-columns: calc(100% - 50vw - 1rem);
     }
 }

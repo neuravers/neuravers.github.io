@@ -52,7 +52,8 @@ footer {
 }
 
 #newsletter p:nth-child(4) {
-    font-size: 0.75rem;
+    font-size: 1rem;
+    max-width: 600px;
     color: #999999;
 }
 

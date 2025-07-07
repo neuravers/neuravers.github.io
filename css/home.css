@@ -17,16 +17,6 @@
     margin-top: 4rem;
 }
 
-@media (min-width: 480px) {
-    #greeting {
-        text-align: center;
-    }
-
-    #greeting>p {
-        text-align: center;
-    }
-}
-
 @media (min-width: 768px) {
     .cart-container-horizontal {
         display: grid;
@@ -40,5 +30,9 @@
 
     .cart-container-horizontal .cart:first-child {
         grid-column: 1 / span 2;
+    }
+
+    .cart-container-horizontal .cart:first-child img {
+        aspect-ratio: 2 / 1;
     }
 }
