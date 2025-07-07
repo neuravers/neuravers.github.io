@@ -1,11 +1,13 @@
+#blog-content {
+    width: 100%;
+}
+
 #search-bar {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: -3rem;
     width: 100%;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
 }
 
 #search-bar input {
@@ -71,6 +73,8 @@
     align-items: center;
     justify-content: center;
 }
+
+@media (min-width: 480px) {}
 
 @media (min-width: 768px) {
     .cart-container-horizontal {
