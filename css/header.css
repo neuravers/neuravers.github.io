@@ -6,7 +6,11 @@ header {
     top: 0;
 
     z-index: 1000;
-    padding: 1.5rem 6vw 1.5rem 5vw;
+    padding: 1.5rem 10vw 1.5rem 10vw;
+}
+
+#logo-container {
+    width: 100%;
 }
 
 #logo-container>img {
@@ -16,15 +20,14 @@ header {
 
 #blog-name {
     font-weight: 700;
-
 }
 
 #menu-container {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding-left: 1vw;
-
+    width: 100%;
+    margin-left: -1rem;
 }
 
 #menu-container>nav {
@@ -124,7 +127,7 @@ header {
 
 #sidebar-menu nav {
     margin-top: 8rem;
-    padding-right: 6vw;
+    padding-right: 10vw;
 }
 
 #sidebar-menu nav ul {
@@ -167,7 +170,7 @@ footer.menu-open {
 }
 
 #language-selector {
-    margin-right: 6vw;
+    margin-right: 10vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -194,17 +197,7 @@ footer.menu-open {
 
 }
 
-@media screen and (min-width: 900px) {
-    #logo-container {
-        width: 100%;
-    }
-
-    #menu-container {
-        width: 100%;
-        padding-left: 0;
-
-    }
-
+@media screen and (min-width: 1000px) {
     #menu-container>nav {
         display: flex;
         align-items: center;
