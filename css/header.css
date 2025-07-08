@@ -241,6 +241,18 @@ footer.menu-open {
     }
 }
 
+@media screen and (min-width: 1000px) {
+    #sidebar-menu {
+        right: -30vw;
+        width: 30vw;
+    }
+
+    main.menu-open,
+    footer.menu-open {
+        transform: translateX(-35vw);
+    }
+}
+
 @media screen and (min-width: 1150px) {
     #menu-container>nav>ul {
         gap: 2rem;

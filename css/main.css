@@ -45,6 +45,7 @@ p {
 main {
     padding-left: 10vw;
     padding-right: 10vw;
+    transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
 }
 
 #main-section {
