@@ -4,8 +4,8 @@ header {
     justify-content: space-between;
     position: sticky;
     top: 0;
-
     z-index: 1000;
+    background-color: black;
     padding: 1.5rem 10vw 1.5rem 10vw;
 }
 
@@ -162,7 +162,7 @@ header {
 
 main.menu-open,
 footer.menu-open {
-    transform: translateX(-65vw);
+    transform: translateX(-30vw);
     filter: blur(10px);
     opacity: 0.5;
     transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
@@ -243,13 +243,13 @@ footer.menu-open {
 
 @media screen and (min-width: 1000px) {
     #sidebar-menu {
-        right: -30vw;
-        width: 30vw;
+        right: -25vw;
+        width: 25vw;
     }
 
     main.menu-open,
     footer.menu-open {
-        transform: translateX(-35vw);
+        transform: translateX(-5vw);
     }
 }
 
