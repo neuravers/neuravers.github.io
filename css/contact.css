@@ -24,6 +24,7 @@
     flex-direction: row;
     gap: 1rem;
     color: #999999;
+    font-size: 0.75rem;
 }
 
 .form-group:nth-last-child(2) input {
