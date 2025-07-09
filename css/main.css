@@ -59,6 +59,32 @@ main {
     gap: 1rem;
 }
 
+#main-section>h1 {
+    font-size: 3rem;
+}
+
+#main-section>h5 {
+    color: #5e5e5e;
+    font-size: 0.75rem;
+}
+
+#main-section>img {
+    width: 100%;
+    margin-top: 4rem;
+    max-width: 700px;
+    aspect-ratio: 2/1;
+    border-radius: 9px;
+}
+
+#main-section>span {
+    background-color: #111111;
+    padding: 1px;
+    border-radius: 9px;
+    max-width: 900px;
+    width: 100%;
+    margin-top: 2rem;
+}
+
 .section-header {
     display: flex;
     flex-direction: column;

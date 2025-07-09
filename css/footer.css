@@ -36,7 +36,7 @@ footer>div {
     footer {
         flex-direction: row;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-end;
         gap: 2rem;
     }
 

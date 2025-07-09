@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+    <title>Neuravers</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/contact.css">
@@ -20,73 +20,95 @@
             <img src="images/logo.png" alt="Neuravers logo">
         </div>
         <span id="blog-name">NEURAVERS</span>
-        <div id="menu-button">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+        <div id="menu-container">
+            <nav>
+                <ul>
+                    <li><a href="index.html" style="color: #999999;">Home</a></li>
+                    <li><a href="about.html" style="color: #999999;">About</a></li>
+                    <li><a href="blog.html" style="color: #999999;">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div id="menu-button">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div id="sidebar-menu">
+                <nav>
+                    <ul>
+                        <li><a href="index.html" style="color: #999999;">Home</a></li>
+                        <li><a href="about.html" style="color: #999999;">About</a></li>
+                        <li><a href="blog.html" style="color: #999999;">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div id="language-selector">
+                    <img src="images/language-english.png" alt="English language">
+                    <span>English</span>
+                    <img src="images/arrow-down.png" alt="Arrow down">
+                </div>
+            </div>
         </div>
     </header>
-    <aside id="menu-container">
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about-me.html">About Me</a></li>
-                <li><a href="contact.html" style="color: white;">Contact</a></li>
-            </ul>
-        </nav>
-        <div id="language-selector">
-            <img src="images/language-english.png" alt="English language">
-            <span>English</span>
-            <img src="images/arrow-down.png" alt="Arrow down">
-        </div>
-    </aside>
     <main>
-        <section id="main-header">
-            <h4>Contact us</h4>
-            <h1>We'd love to hear from you!</h1>
+        <section id="main-section">
+            <h5>Contact</h5>
+            <h1>Let’s Talk</h1>
+            <p>Got a question, idea or anything else? I’m always glad to reply!</p>
             <img src="images/abstract.png" alt="Abstract image">
+            <span></span>
         </section>
-        <section id="contact-form">
+        <section id="contact-section">
             <div class="section-header">
-                <h1>Contact form</h1>
-                <p>If you have any questions, suggestions, or just want to say hello, feel free to reach out using the
-                    form
-                    below. We value your feedback and will get back to you as soon as possible.</p>
+                <h1>Contact Form</h1>
+                <p>Fill out the form below to get in touch with us.</p>
             </div>
-            <form action="#" method="post">
+            <form id="contact-form">
                 <div class="form-group">
                     <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
                 </div>
                 <div class="form-group">
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <label for=" message">Message:</label>
+                    <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="rounded-button">Send Message</button>
+                    <input type="checkbox" id="accept-terms" name="accept-terms" required>
+                    <label for="accept-terms">I consent to the processing of my personal data for the purpose of
+                        responding to my message.</label>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Send Message</button>
                 </div>
             </form>
         </section>
     </main>
 
     <footer>
-        <div id="footer-content">
-            <p>All rights reserverd &copy; 2025 Neuravers</p>
-        </div>
-        <div id="newsletter">
-            <h1>Newsletter</h1>
-            <p>Stay one step ahead — subscribe now!</p>
+        <section id="newsletter-section">
+            <section class="section-header">
+                <h1>Newsletter</h1>
+                <p>Subscribe to our newsletter for the latest updates and insights.</p>
+            </section>
             <form id="newsletter-form">
                 <input type="email" placeholder="Enter your email" required>
-                <button type="submit">Sign up</button>
+                <button type="submit">Subscribe</button>
             </form>
-            <p>We respect your privacy — your email will only be used to communicate with you.</p>
+            <p id="newsletter-disclaimer">By subscribing, you agree to receive emails from Neuravers. You can
+                unsubscribe at any time.</p>
+        </section>
+        <div>
+            <div id="footer-logo">
+                <img src="images/logo.png" alt="Neuravers logo">
+                <h4>Neuravers</h4>
+            </div>
+            <p>&copy; 2023 Neuravers. All rights reserved.</p>
         </div>
     </footer>
 </body>

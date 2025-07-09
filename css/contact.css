@@ -1,35 +1,76 @@
-#contact-form form {
-    width: 100%;
+#contact-form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 4rem;
+    width: 100%;
+    gap: 2rem;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    width: 100%;
+    max-width: 500px;
+    gap: 0.5rem;
+}
+
+.form-group:nth-last-child(2) {
+    flex-direction: row;
     gap: 1rem;
-    margin-top: 2rem;
+    color: #999999;
+}
+
+.form-group:nth-last-child(2) input {
+    width: auto;
+}
+
+.form-group:last-child {
     align-items: center;
-    max-width: 600px;
+    justify-content: center;
     width: 100%;
+    margin-top: 1rem;
 }
 
-.form-group label {
+.form-group input {
     width: 100%;
-}
-
-.form-group input,
-textarea {
-    border-radius: 4px;
-    background-color: #111111;
+    padding: 1rem;
+    border-radius: 9px;
     border: none;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
+    background-color: #161616;
+    color: #999999;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: -0.05cap;
+}
+
+.form-group textarea {
     width: 100%;
-    color: #BABABA;
+    height: 300px;
+    padding: 1rem;
+    border-radius: 9px;
+    border: none;
+    background-color: #161616;
+    color: #999999;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: -0.05cap;
+    resize: none;
 }
 
 .form-group button {
-    margin-top: 2rem;
+    padding: 1rem 2rem;
+    border-radius: 9px;
+    border: none;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: -0.05cap;
 }
