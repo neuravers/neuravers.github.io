@@ -162,7 +162,7 @@ header {
 
 main.menu-open,
 footer.menu-open {
-    transform: translateX(-30vw);
+    transform: translateX(-50vw);
     filter: blur(10px);
     opacity: 0.5;
     transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
@@ -195,6 +195,17 @@ footer.menu-open {
     font-size: 1rem;
     color: white;
 
+}
+
+@media screen and (min-width: 450px) {
+
+    main.menu-open,
+    footer.menu-open {
+        transform: translateX(-30vw);
+        filter: blur(10px);
+        opacity: 0.5;
+        transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
+    }
 }
 
 @media screen and (min-width: 1000px) {
