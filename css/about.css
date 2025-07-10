@@ -1,11 +1,16 @@
 #about-content {
     margin-top: 4rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #about-content-left {
-    max-width: 900px;
     display: flex;
     flex-direction: column;
+    max-width: 900px;
     gap: 2rem;
 }
 
@@ -43,6 +48,7 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    max-width: 1600px
 }
 
 .news-item {
@@ -69,22 +75,59 @@
     border-radius: 9px;
 }
 
-#github-button {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 4rem;
+@media screen and (min-width: 540px) {
+
+    .news-item {
+        flex: 0 0 40%;
+    }
+
+    .news-item-active {
+        flex: 0 0 50%;
+    }
 }
 
-#github-button button {
-    padding: 1rem 2rem;
-    border-radius: 9px;
-    border: none;
-    background-color: white;
-    color: black;
-    cursor: pointer;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.85rem;
-    letter-spacing: -0.05cap;
+@media screen and (min-width: 750px) {
+
+    .news-item {
+        flex: 0 0 30%;
+    }
+
+    .news-item-active {
+        flex: 0 0 40%;
+    }
+}
+
+@media screen and (min-width: 900px) {
+
+    .news-item {
+        flex: 0 0 20%;
+        font-size: 0.6rem;
+    }
+
+    .news-item-active {
+        flex: 0 0 30%;
+        font-size: 1rem;
+    }
+
+    .news-item-almost-active {
+        flex: 0 0 25%;
+        opacity: 0.8;
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (min-width: 1150px) {
+
+    .news-item {
+        flex: 0 0 10%;
+    }
+
+    .news-item-active {
+        flex: 0 0 20%;
+    }
+
+    .news-item-almost-active {
+        flex: 0 0 15%;
+        opacity: 0.8;
+    }
 }

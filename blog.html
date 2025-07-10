@@ -63,23 +63,26 @@
             <h5>Blog</h5>
             <h1>You will find here bullshit</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut</p>
+            <div id="search-container">
+                <input type="text" id="search-input" placeholder="Search blog posts...">
+                <button id="search-button">Search</button>
+            </div>
             <span></span>
         </section>
         <section id="blog-section">
             <div class="section-header">
                 <h1>Blog</h1>
-                <p>Search or use filters</p>
-            </div>
-            <div id="search-container">
-                <input type="text" id="search-input" placeholder="Search blog posts...">
-                <button id="search-button">Search</button>
+                <p>(Found 3000 posts)</p>
             </div>
             <section id="blog-content">
                 <div id="blog-filters">
                     <div>
                         Filter
+                        <img src="images/filter.png" alt="Filter icon">
                     </div>
-                    <div>Sort</div>
+                    <div>Sort
+                        <img src="images/arrow-down.png" alt="Sort icon">
+                    </div>
                 </div>
                 <div id="blog-posts">
                     <div class="slider-item">
@@ -103,6 +106,17 @@
                             <p>A beginner's guide to neural networks.</p>
                         </div>
                     </div>
+                    <div class="slider-item">
+                        <img src="images/abstract2.png" alt="News 5">
+                        <div>
+                            <h4>Understanding Neural Networks</h4>
+                            <p>A beginner's guide to neural networks.</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="blog-pagination">
+                    <button>Load more</button>
+                </div>
             </section>
         </section>
     </main>
