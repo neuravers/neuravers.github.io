@@ -1,88 +1,64 @@
-#blog-content {
-    width: 100%;
-}
-
-#search-bar {
+#search-container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin-top: -3rem;
     width: 100%;
+    margin-top: 2rem;
 }
 
-#search-bar input {
-    border-radius: 4px 0 0 4px;
-    background-color: #111111;
-    border: none;
-    height: auto;
-    padding: 0.75rem 1.5rem;
+#search-container input {
     width: 100%;
-    max-width: 600px;
-    font-size: 1rem;
-    color: #BABABA;
-}
-
-#search-bar button {
-    border-radius: 0 4px 4px 0;
-    background-color: #2b2b2b;
+    max-width: 400px;
+    padding: 1rem;
+    border-radius: 9px 0 0 9px;
     border: none;
-    height: auto;
-    font-size: 1rem;
-    padding: 0.75rem 1.5rem;
+    background-color: #161616;
+    color: #999999;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: -0.05cap;
 }
 
-#post-count {
+#search-container button {
+    margin-left: -1rem;
+    padding: 1rem 2rem;
+    border-radius: 9px;
+    border: none;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: -0.05cap;
+}
+
+#blog-filters {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    margin-top: 1rem;
-}
-
-#blog-posts {
+    gap: 1rem;
     margin-top: 4rem;
 }
 
-#control-panel {
-    display: flex;
-    gap: 1rem;
-    justify-content: space-between;
-}
 
-#control-panel div {
+
+.slider-item {
     display: flex;
+    align-items: center;
     justify-content: center;
-    align-items: center;
     gap: 1rem;
+    margin-top: 2rem;
 }
 
-#control-panel span {
+.slider-item img {
+    width: 7rem;
+    aspect-ratio: 1/1;
+    border-radius: 9px;
+}
+
+.slider-item div {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
-}
-
-#control-panel img {
-    width: 1rem;
-    height: 1rem;
-}
-
-
-#load-more {
-    margin-top: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-@media (min-width: 480px) {}
-
-@media (min-width: 768px) {
-    .cart-container-horizontal {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-        grid-row-gap: 4rem;
-        grid-auto-rows: auto;
-        grid-template-rows: none;
-    }
 }

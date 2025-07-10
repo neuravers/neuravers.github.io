@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
+    <title>Neuravers</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/blog.css">
@@ -20,110 +20,111 @@
             <img src="images/logo.png" alt="Neuravers logo">
         </div>
         <span id="blog-name">NEURAVERS</span>
-        <div id="menu-button">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+        <div id="menu-container">
+            <nav>
+                <ul>
+                    <li><a href="index.html" style="color: #999999;">Home</a></li>
+                    <li><a href="about.html" style="color: #999999;">About</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html" style="color: #999999;">Contact</a></li>
+                </ul>
+            </nav>
+            <div id="menu-button">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div id="sidebar-menu">
+                <nav>
+                    <ul>
+                        <li><a href="index.html" style="color: #999999;">Home</a></li>
+                        <li><a href="about.html" style="color: #999999;">About</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html" style="color: #999999;">Contact</a></li>
+                    </ul>
+                </nav>
+                <div id="language-selector">
+                    <img src="images/language-english.png" alt="English language">
+                    <span>English</span>
+                    <img src="images/arrow-down.png" alt="Arrow down">
+                </div>
+            </div>
         </div>
     </header>
-    <aside id="menu-container">
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="blog.html" style="color: white;">Blog</a></li>
-                <li><a href="about-me.html">About Me</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-        <div id="language-selector">
-            <img src="images/language-english.png" alt="English language">
-            <span>English</span>
-            <img src="images/arrow-down.png" alt="Arrow down">
-        </div>
-    </aside>
+    <!-- <div class="fog-bg">
+        <div class="fog"></div>
+        <div class="fog"></div>
+        <div class="fog"></div>
+        <div class="fog"></div>
+    </div> -->
     <main>
-        <section id="main-header">
-            <h4>Blog</h4>
-            <h1>Welcome to our blog!</h1>
-            <img src="images/abstract2.png" alt="Abstract image">
+        <section id="main-section">
+            <h5>Blog</h5>
+            <h1>You will find here bullshit</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut</p>
+            <span></span>
         </section>
-        <section id="blog-content">
+        <section id="blog-section">
             <div class="section-header">
-                <h1>All posts</h1>
-                <p>Here you will find all the posts.</p>
+                <h1>Blog</h1>
+                <p>Search or use filters</p>
             </div>
-            <div id="search-bar">
-                <input type="text" placeholder="Search for posts...">
-                <button type="submit">Search</button>
+            <div id="search-container">
+                <input type="text" id="search-input" placeholder="Search blog posts...">
+                <button id="search-button">Search</button>
             </div>
-            <div id="post-count">
-                <h4>(From 300 posts)</h4>
-            </div>
-            <div id="blog-posts">
-                <div id="control-panel">
+            <section id="blog-content">
+                <div id="blog-filters">
                     <div>
-                        <span>
-                            <h3>Filter</h3>
-                            <img src="images/filter.png" alt="Filter icon" id="filter-icon">
-                        </span>
-                        <span>
-                            <h3>Sort</h3>
-                            <img src="images/arrow-down.png" alt="Sort icon" id="sort-icon">
-                        </span>
+                        Filter
                     </div>
-                    <div>
-                        <img src="images/grid-menu.png" alt="Grid view icon">
-                        <img src="images/list-menu-off.png" alt="List view icon">
-                    </div>
+                    <div>Sort</div>
                 </div>
-                <div class="cart-container-horizontal">
-                    <div class="cart">
-                        <img src="images/abstract3.png" alt="Abstract image">
-                        <h2>Introduction to llm</h2>
-                        <h3>NLP</h3>
-                        <span class="cart-other-info">
-                            <h4>February 25, 2025</h4>
-                            <h4>6 min read</h4>
-                        </span>
+                <div id="blog-posts">
+                    <div class="slider-item">
+                        <img src="images/abstract2.png" alt="News 5">
+                        <div>
+                            <h4>Understanding Neural Networks</h4>
+                            <p>A beginner's guide to neural networks.</p>
+                        </div>
                     </div>
-                    <div class="cart">
-                        <img src="images/abstract.png" alt="Abstract image">
-                        <h2>Introduction to llm</h2>
-                        <h3>NLP</h3>
-                        <span class="cart-other-info">
-                            <h4>February 25, 2025</h4>
-                            <h4>6 min read</h4>
-                        </span>
+                    <div class="slider-item">
+                        <img src="images/abstract2.png" alt="News 5">
+                        <div>
+                            <h4>Understanding Neural Networks</h4>
+                            <p>A beginner's guide to neural networks.</p>
+                        </div>
                     </div>
-                    <div class="cart">
-                        <img src="images/abstract2.png" alt="Abstract image">
-                        <h2>Introduction to llm</h2>
-                        <h3>NLP</h3>
-                        <span class="cart-other-info">
-                            <h4>February 25, 2025</h4>
-                            <h4>6 min read</h4>
-                        </span>
+                    <div class="slider-item">
+                        <img src="images/abstract2.png" alt="News 5">
+                        <div>
+                            <h4>Understanding Neural Networks</h4>
+                            <p>A beginner's guide to neural networks.</p>
+                        </div>
                     </div>
-                </div>
-                <div id="load-more">
-                    <button class="rounded-button">Load more</button>
-                </div>
-            </div>
+            </section>
         </section>
     </main>
     <footer>
-        <div id="footer-content">
-            <p>All rights reserverd &copy; 2025 Neuravers</p>
-        </div>
-        <div id="newsletter">
-            <h1>Newsletter</h1>
-            <p>Stay one step ahead — subscribe now!</p>
+        <section id="newsletter-section">
+            <section class="section-header">
+                <h1>Newsletter</h1>
+                <p>Subscribe to our newsletter for the latest updates and insights.</p>
+            </section>
             <form id="newsletter-form">
                 <input type="email" placeholder="Enter your email" required>
-                <button type="submit">Sign up</button>
+                <button type="submit">Subscribe</button>
             </form>
-            <p>We respect your privacy — your email will only be used to communicate with you.</p>
+            <p id="newsletter-disclaimer">By subscribing, you agree to receive emails from Neuravers. You can
+                unsubscribe at any time.</p>
+        </section>
+        <div>
+            <div id="footer-logo">
+                <img src="images/logo.png" alt="Neuravers logo">
+                <h4>Neuravers</h4>
+            </div>
+            <p>&copy; 2023 Neuravers. All rights reserved.</p>
         </div>
     </footer>
 </body>
