@@ -64,13 +64,27 @@ document.addEventListener('DOMContentLoaded', function () {
         if (closestItem) closestItem.classList.add('news-item-active');
     }
 
+    let isRotating = false;
+
     track.addEventListener('scroll', () => {
+        if (isRotating) return;
         updateActiveItem();
 
-        if (track.scrollLeft < singleItemWidth) {
-            track.scrollLeft += clonesEachSide * singleItemWidth;
-        } else if (track.scrollLeft > track.scrollWidth - clonesEachSide * singleItemWidth) {
-            track.scrollLeft -= clonesEachSide * singleItemWidth;
+        // Scrolled near the end (right)
+        if (track.scrollLeft >= track.scrollWidth - track.offsetWidth - itemWidth) {
+            isRotating = true;
+            track.style.scrollBehavior = 'auto';
+            track.appendChild(track.firstElementChild); // Move first to end
+            track.scrollLeft -= itemWidth;
+            setTimeout(() => { isRotating = false; track.style.scrollBehavior = 'smooth'; }, 50);
+        }
+        // Scrolled near the beginning (left)
+        else if (track.scrollLeft <= itemWidth) {
+            isRotating = true;
+            track.style.scrollBehavior = 'auto';
+            track.insertBefore(track.lastElementChild, track.firstElementChild); // Move last to start
+            track.scrollLeft += itemWidth;
+            setTimeout(() => { isRotating = false; track.style.scrollBehavior = 'smooth'; }, 50);
         }
     });
 

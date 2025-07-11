@@ -70,7 +70,6 @@
     left: 50%;
     transform: translateX(-50%);
     margin-top: 2rem;
-    min-height: 50vw;
 }
 
 .news-track {
@@ -106,9 +105,9 @@
     font-size: 0.8rem;
     scroll-snap-align: center;
     transition:
-        opacity 1s ease,
-        width 1s ease,
-        font-size 1s ease;
+        opacity 0.7s ease,
+        width 0.7s ease,
+        font-size 0.7s ease;
     /* Smooth animation */
 }
 
