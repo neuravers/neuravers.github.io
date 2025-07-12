@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else if (newsTrack.scrollLeft > maxScroll) {
                     newsTrack.scrollLeft = maxScroll;
                 }
-            }, 100);
+            }, 50);
         });
 
         updateActiveItem();

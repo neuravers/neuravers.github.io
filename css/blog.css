@@ -92,9 +92,21 @@
 .slider-item div {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 1rem;
+    width: 100%;
+}
+
+.slider-item h4:nth-child(2) {
+    color: #BABABA;
+}
+
+.slider-item span {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 300px;
 }
 
 #blog-pagination {
