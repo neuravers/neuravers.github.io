@@ -9,86 +9,110 @@ $(document).ready(function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    const track = document.querySelector('.news-track');
-    const carousel = document.getElementById('news-carousel');
+    let newsTrack = document.querySelector('.news-track');
+    const items = newsTrack.querySelectorAll('.news-item');
+    const firstItem = items[0];
+    const lastItem = items[items.length - 1];
+    const clonedFirstItem = firstItem.cloneNode(true);
+    const clonedLastItem = lastItem.cloneNode(true);
 
-    function updateCarouselHeight() {
-        const activeItem = track.querySelector('.news-item-active');
-        if (activeItem) {
-            const newHeight = activeItem.offsetHeight;
-            carousel.style.height = `${newHeight}px`;
-        }
+    newsTrack.appendChild(clonedLastItem);
+    newsTrack.insertBefore(clonedFirstItem, newsTrack.firstChild);
+
+    const activeItem = newsTrack.querySelector('.news-item-active');
+    if (activeItem) {
+        newsTrack.style.height = activeItem.offsetHeight + 'px';
     }
 
-    // Od razu ustaw na starcie
-    updateCarouselHeight();
+    requestAnimationFrame(() => {
+        const style = getComputedStyle(firstItem);
+        const marginLeft = parseInt(style.marginLeft) || 0;
+        const marginRight = parseInt(style.marginRight) || 0;
+        const itemWidth = firstItem.offsetWidth + marginLeft + marginRight;
 
-    const items = Array.from(track.querySelectorAll('.news-item'));
-    const itemWidth = items[0].offsetWidth + 32; // 32px gap
+        const bufferVisiblePx = 32;
 
-    // Clone items for infinite effect
-    items.forEach(item => {
-        const cloneStart = item.cloneNode(true);
-        cloneStart.classList.add('clone');
-        track.insertBefore(cloneStart, track.firstChild);
+        newsTrack.scrollLeft = itemWidth;
 
-        const cloneEnd = item.cloneNode(true);
-        cloneEnd.classList.add('clone');
-        track.appendChild(cloneEnd);
-    });
+        const minScroll = itemWidth / 2;
+        const maxScroll = newsTrack.scrollWidth - newsTrack.clientWidth - itemWidth / 2;
 
-    const clonesEachSide = items.length;
-    const allItems = Array.from(track.querySelectorAll('.news-item'));
-    const singleItemWidth = items[0].offsetWidth + 32;
+        newsTrack.scrollLeft = itemWidth * 3 / 2;
 
-    // Start in the middle
-    track.scrollLeft = clonesEachSide * singleItemWidth;
+        let isScrolling;
+        function updateActiveItem() {
+            const trackRect = newsTrack.getBoundingClientRect();
+            const trackCenter = trackRect.left + trackRect.width / 2;
 
-    function updateActiveItem() {
-        const center = track.scrollLeft + track.offsetWidth / 2;
+            let closestItem = null;
+            let closestDistance = Infinity;
 
-        let closestItem = null;
-        let closestDistance = Infinity;
+            for (let i = 1; i < newsTrack.children.length - 1; i++) {
+                const item = newsTrack.children[i];
+                const itemRect = item.getBoundingClientRect();
+                const itemCenter = itemRect.left + itemRect.width / 2;
 
-        allItems.forEach(item => {
-            const itemCenter = item.offsetLeft + item.offsetWidth / 2;
-            const distance = Math.abs(center - itemCenter);
-
-            if (distance < closestDistance) {
-                closestDistance = distance;
-                closestItem = item;
+                const distance = Math.abs(trackCenter - itemCenter);
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestItem = item;
+                }
             }
+
+            newsTrack.querySelectorAll('.news-item-active').forEach(el => el.classList.remove('news-item-active'));
+
+            if (closestItem) {
+                closestItem.classList.add('news-item-active');
+            }
+        }
+
+        newsTrack.addEventListener('scroll', () => {
+            updateActiveItem();
+
+            clearTimeout(isScrolling);
+
+            isScrolling = setTimeout(() => {
+                if (newsTrack.scrollLeft < minScroll) {
+                    newsTrack.scrollLeft = minScroll;
+                } else if (newsTrack.scrollLeft > maxScroll) {
+                    newsTrack.scrollLeft = maxScroll;
+                }
+            }, 100);
         });
 
-        allItems.forEach(item => item.classList.remove('news-item-active'));
-        if (closestItem) closestItem.classList.add('news-item-active');
-    }
-
-    let isRotating = false;
-
-    track.addEventListener('scroll', () => {
-        if (isRotating) return;
         updateActiveItem();
 
-        // Scrolled near the end (right)
-        if (track.scrollLeft >= track.scrollWidth - track.offsetWidth - itemWidth) {
-            isRotating = true;
-            track.style.scrollBehavior = 'auto';
-            track.appendChild(track.firstElementChild); // Move first to end
-            track.scrollLeft -= itemWidth;
-            setTimeout(() => { isRotating = false; track.style.scrollBehavior = 'smooth'; }, 50);
-        }
-        // Scrolled near the beginning (left)
-        else if (track.scrollLeft <= itemWidth) {
-            isRotating = true;
-            track.style.scrollBehavior = 'auto';
-            track.insertBefore(track.lastElementChild, track.firstElementChild); // Move last to start
-            track.scrollLeft += itemWidth;
-            setTimeout(() => { isRotating = false; track.style.scrollBehavior = 'smooth'; }, 50);
-        }
-    });
+        // ======= DODAJEMY OBSŁUGĘ DRAG MYSZĄ =======
 
-    window.addEventListener('resize', updateActiveItem);
-    window.addEventListener('resize', updateCarouselHeight);
-    updateActiveItem();
+        let isDragging = false;
+        let startX;
+        let scrollLeft;
+
+        newsTrack.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            newsTrack.classList.add('dragging'); // możesz dodać styl dla kursora
+            startX = e.pageX - newsTrack.offsetLeft;
+            scrollLeft = newsTrack.scrollLeft;
+            e.preventDefault();
+        });
+
+        newsTrack.addEventListener('mouseleave', () => {
+            isDragging = false;
+            newsTrack.classList.remove('dragging');
+        });
+
+        newsTrack.addEventListener('mouseup', () => {
+            isDragging = false;
+            newsTrack.classList.remove('dragging');
+        });
+
+        newsTrack.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.pageX - newsTrack.offsetLeft;
+            const walk = (x - startX) * 2; // 2 to szybkość scrollowania - możesz zmienić
+            newsTrack.scrollLeft = scrollLeft - walk;
+        });
+
+    });
 });
