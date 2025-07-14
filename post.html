@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuravers</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/post.css">
+    <link rel="stylesheet" href="css/footer.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="js/header.js" defer></script>
+    <link rel="stylesheet" href="css/prism.css">
+
+</head>
+
+<body>
+    <header>
+        <div id="logo-container">
+            <img src="images/logo.png" alt="Neuravers logo">
+        </div>
+        <span id="blog-name">NEURAVERS</span>
+        <div id="menu-container">
+            <nav>
+                <ul>
+                    <li><a href="index.html" style="color: #999999;">Home</a></li>
+                    <li><a href="blog.html" style="color: #999999;">Blog</a></li>
+                    <li><a href="about.html" style="color: #999999;">About</a></li>
+                    <li><a href="contact.html" style="color: #999999;">Contact</a></li>
+                </ul>
+            </nav>
+            <div id="menu-button">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div id="sidebar-menu">
+                <nav>
+                    <ul>
+                        <li><a href="index.html" style="color: #999999;">Home</a></li>
+                        <li><a href="blog.html" style="color: #999999;">Blog</a></li>
+                        <li><a href="about.html" style="color: #999999;">About</a></li>
+                        <li><a href="contact.html" style="color: #999999;">Contact</a></li>
+                    </ul>
+                </nav>
+                <div id="language-selector">
+                    <img src="images/language-english.png" alt="English language">
+                    <span>English</span>
+                    <img src="images/arrow-down.png" alt="Arrow down">
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section id="main-section">
+            <h5>February 10, 2025, 6 min read</h5>
+            <h1>Your Gateway to Knowledge</h1>
+            <p>Explore a world of ideas, insights, and innovations. Join our community of curious minds!</p>
+            <span></span>
+        </section>
+        <div>
+            <article>
+                <section>
+                    <h1>Understanding the Human Brain</h1>
+                    <!-- Sekcja kodu (możliwość kopiowania i scrollowania horyzontalnie zależy od przeglądarki) -->
+                    <pre><code class="language-python">
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_core.messages import HumanMessage
+import base64
+ 
+# Initialize model
+llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash")
+ 
+# Using an image URL
+message_url = HumanMessage(
+    content=[
+        {"type": "text", "text": "Describe this image."},
+        {"type": "image_url", "image_url": "https://picsum.photos/seed/picsum/200/300"},
+    ]
+)
+result_url = llm.invoke([message_url])
+print(result_url.content)
+ 
+# Using a local image
+local_image_path = "../assets/react.png"
+with open(local_image_path, "rb") as image_file:
+    encoded_image = base64.b64encode(image_file.read()).decode('utf-8')
+ 
+message_local = HumanMessage(
+    content=[
+        {"type": "text", "text": "Describe this image."},
+        {"type": "image_url", "image_url": f"data:image/png;base64,{encoded_image}"}
+    ]
+)
+result_local = llm.invoke([message_local])
+print(result_local.content)
+</code></pre>
+
+
+                    <!-- Sekcja wykresu/zdjęcia z podpisem -->
+                    <figure>
+                        <img src="images/abstract2.png" alt="Abstract Image">
+                        <figcaption>Rysunek 1: To jest podpis obrazka.</figcaption>
+                    </figure>
+                    <!-- Cytat -->
+                    <blockquote>
+                        <p>
+                            Hey Jim! Tomorrow’s packed on my end, back-to-back all day. Thursday AM free if that
+                            works for
+                            you? Sent an invite, lmk if it works.
+                        </p>
+                        <footer><cite>Elon musk</cite></footer>
+                    </blockquote>
+
+                    <q>Ala ma psa i to nie jest test</q>
+                    <code>Gemini model 2.5</code>
+                    <!-- Pogrubienie -->
+                    <p>
+                        To jest tekst z <strong>pogrubieniem</strong>.
+                    </p>
+
+                    <!-- Link/odniesienie -->
+                    <p>
+                        Odwiedź <a href="https://www.example.com">Karpathy tweet</a>.
+                    </p>
+
+                    <!-- Dwie listy -->
+                    <ul>
+                        <li>Punkt pierwszy</li>
+                        <li>Punkt drugi</li>
+                        <li>Punkt trzeci</li>
+                    </ul>
+
+                    <ol>
+                        <li>Element pierwszy</li>
+                        <li>Element drugi</li>
+                        <li>Element trzeci</li>
+                    </ol>
+                </section>
+            </article>
+            <aside>
+                <h4>Understanding the Human Brain</h4>
+                <h4 class=" active-header">Understanding the Human Brain</h4>
+                <h4>Understanding the Human Brain</h4>
+                <h4>Understanding the Human Brain</h4>
+            </aside>
+        </div>
+    </main>
+    <footer>
+        <section id="newsletter-section">
+            <section class="section-header">
+                <h1>Newsletter</h1>
+                <p>Fuel Your Brain. Feed Your Curiosity.</p>
+            </section>
+            <form id="newsletter-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+            <p id="newsletter-disclaimer">By subscribing, you agree to receive emails from Neuravers. You can
+                unsubscribe at any time.</p>
+        </section>
+        <div>
+            <div id="footer-logo">
+                <img src="images/logo.png" alt="Neuravers logo">
+                <h4>NEURAVERS</h4>
+            </div>
+            <p>&copy; 2025 Neuravers. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="js/prism.js"></script>
+</body>
+
+</html>

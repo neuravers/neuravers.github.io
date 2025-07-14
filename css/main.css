@@ -9,8 +9,6 @@
     user-select: none;
 }
 
-:root {}
-
 html {
     color: white;
     font-family: 'Inter', sans-serif;
@@ -38,12 +36,12 @@ h3 {
 }
 
 p {
-    color: #999999;
+    color: #d1d5db;
     max-width: 600px;
 }
 
 b {
-    color: #BABABA;
+    color: white;
 }
 
 main {
