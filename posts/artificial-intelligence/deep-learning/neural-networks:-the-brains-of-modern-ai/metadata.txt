@@ -1,0 +1,17 @@
+[Date]  
+2025-07-14
+
+[Post name]  
+Neural Networks: The Brains of Modern AI
+
+[Post description]  
+An introductory article explaining how neural networks work, with examples in Python and key concepts like backpropagation and gradient descent.
+
+[Category]  
+Artificial Intelligence
+
+[Subcategory]  
+Deep Learning
+
+[Image]  
+https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Artificial_neural_network.svg/1920px-Artificial_neural_network.svg.png

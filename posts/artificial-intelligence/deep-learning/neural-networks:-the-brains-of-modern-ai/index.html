@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuravers</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/post.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/prism.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css"
+        integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" defer></script>
+    <script src="/js/header.js" defer></script>
+    <script src="/js/prism.js" defer></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"
+        integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"
+        integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+</head>
+
+<body>
+    <header>
+        <div id="logo-container">
+            <img src="/images/logo.png" alt="Neuravers logo">
+        </div>
+        <span id="blog-name">NEURAVERS</span>
+        <div id="menu-container">
+            <nav>
+                <ul>
+                    <li><a href="/index.html" style="color: #999999;">Home</a></li>
+                    <li><a href="/blog.html" style="color: #999999;">Blog</a></li>
+                    <li><a href="/about.html" style="color: #999999;">About</a></li>
+                    <li><a href="/contact.html" style="color: #999999;">Contact</a></li>
+                </ul>
+            </nav>
+            <div id="menu-button">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div id="sidebar-menu">
+                <nav>
+                    <ul>
+                        <li><a href="/index.html" style="color: #999999;">Home</a></li>
+                        <li><a href="/blog.html" style="color: #999999;">Blog</a></li>
+                        <li><a href="/about.html" style="color: #999999;">About</a></li>
+                        <li><a href="/contact.html" style="color: #999999;">Contact</a></li>
+                    </ul>
+                </nav>
+                <div id="language-selector">
+                    <img src="/images/language-english.png" alt="English language">
+                    <span>English</span>
+                    <img src="/images/arrow-down.png" alt="Arrow down">
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section id="main-section">
+            <div><h5>Deep Learning</h5><h5>2</h5></div>
+            <h1>Neural Networks: The Brains of Modern AI</h1>
+            <p>An introductory article explaining how neural networks work, with examples in Python and key concepts like backpropagation and gradient descent.
+            </p>
+            <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Artificial_neural_network.svg/1920px-Artificial_neural_network.svg.png' alt='Post Image' />
+            <span></span>
+        </section>
+        <div>
+            <article>
+                <section>
+<h1>Neural Networks: The Brains of Modern AI</h1>
+<p>Neural networks are at the core of many <strong>modern AI systems</strong>. They try to mimic how the human brain works by using interconnected layers of nodes, or <em>neurons</em>.</p>
+<blockquote>
+  <p>Neural networks are the backbone of deep learning.</p>
+<ul>
+<li>Geoffrey Hinton</li>
+</ul>
+</blockquote>
+<p><span><q>A neural network learns by adjusting weights and biases to minimize error.</q></span></p>
+<h2>How They Work</h2>
+<p>A simple neural network consists of an <strong>input layer</strong>, one or more <strong>hidden layers</strong>, and an <strong>output layer</strong>.</p>
+<ul>
+<li>Input Layer</li>
+<li>Hidden Layers</li>
+<li>Output Layer</li>
+</ul>
+<ol>
+<li>Data enters the network.</li>
+<li>It passes through hidden layers where computations happen.</li>
+<li>The network makes a prediction.</li>
+</ol>
+<p>Neural networks are trained using an algorithm called <em>backpropagation</em>. Here’s a tiny example in Python:</p>
+<div class="code-toolbar"><pre class="language-python" tabindex="0"><code class="language-python"><span class="token keyword">import</span> tensorflow <span class="token keyword">as</span> tf
+
+model <span class="token operator">=</span> tf<span class="token punctuation">.</span>keras<span class="token punctuation">.</span>Sequential<span class="token punctuation">(</span><span class="token punctuation">[</span>
+    tf<span class="token punctuation">.</span>keras<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>Dense<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'relu'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    tf<span class="token punctuation">.</span>keras<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>Dense<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre><div class="toolbar"><div class="toolbar-item"><button class="copy-to-clipboard-button" type="button" data-copy-state="copy"><span>Copy</span></button></div></div></div>
+<p>They use calculus to update weights. For example, the gradient descent uses:</p>
+<p><span><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>w</mi><mrow><mi>n</mi><mi>e</mi><mi>w</mi></mrow></msub><mo>=</mo><msub><mi>w</mi><mrow><mi>o</mi><mi>l</mi><mi>d</mi></mrow></msub><mo>−</mo><mi>η</mi><mfrac><mrow><mi mathvariant="normal">∂</mi><mi>E</mi></mrow><mrow><mi mathvariant="normal">∂</mi><mi>w</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">
+w_{new} = w_{old} - \eta \frac{\partial E}{\partial w}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.5806em; vertical-align: -0.15em;"></span><span class="mord"><span style="margin-right: 0.0269em;" class="mord mathnormal">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.1514em;"><span class="" style="top: -2.55em; margin-left: -0.0269em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mord mathnormal mtight">e</span><span style="margin-right: 0.0269em;" class="mord mathnormal mtight">w</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.7333em; vertical-align: -0.15em;"></span><span class="mord"><span style="margin-right: 0.0269em;" class="mord mathnormal">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3361em;"><span class="" style="top: -2.55em; margin-left: -0.0269em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">o</span><span style="margin-right: 0.0197em;" class="mord mathnormal mtight">l</span><span class="mord mathnormal mtight">d</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 2.0574em; vertical-align: -0.686em;"></span><span style="margin-right: 0.0359em;" class="mord mathnormal">η</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.3714em;"><span class="" style="top: -2.314em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span style="margin-right: 0.0556em;" class="mord">∂</span><span style="margin-right: 0.0269em;" class="mord mathnormal">w</span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.677em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span style="margin-right: 0.0556em;" class="mord">∂</span><span style="margin-right: 0.0576em;" class="mord mathnormal">E</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.686em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></span></p>
+<p>You can see that in this <code>equation</code>, the weight update depends on the learning rate <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>η</mi></mrow><annotation encoding="application/x-tex">\eta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.625em; vertical-align: -0.1944em;"></span><span style="margin-right: 0.0359em;" class="mord mathnormal">η</span></span></span></span></span> and the derivative of the error <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi></mrow><annotation encoding="application/x-tex">E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.6833em;"></span><span style="margin-right: 0.0576em;" class="mord mathnormal">E</span></span></span></span></span>.</p>
+<h2>Why They Matter</h2>
+<p>Neural networks power many applications:</p>
+<ul>
+<li>Image recognition</li>
+<li>Natural language processing</li>
+<li>Autonomous driving</li>
+</ul>
+<p>If you want to learn more, check out <a href="https://www.tensorflow.org/">this article</a>.</p>
+<p></p><figure>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Artificial_neural_network.svg/1920px-Artificial_neural_network.svg.png" alt="Rysunek 1. Simple Neural Network">
+  <figcaption>Rysunek 1. Simple Neural Network</figcaption>
+</figure><p></p>
+<blockquote>
+<p>The question of whether a computer can think is no more interesting than the question of whether a submarine can swim.</p>
+  <footer><cite>Edsger W. Dijkstra</cite></footer>
+</blockquote>
+
+</section>
+            </article>
+            <aside>
+                <ul><li>Neural Networks: The Brains of Modern AI</li></ul>
+            </aside>
+        </div>
+    </main>
+    <footer>
+        <section id="newsletter-section">
+            <section class="section-header">
+                <h1>Newsletter</h1>
+                <p>Fuel Your Brain. Feed Your Curiosity.</p>
+            </section>
+            <form id="newsletter-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+            <p id="newsletter-disclaimer">By subscribing, you agree to receive emails from Neuravers. You can
+                unsubscribe at any time.</p>
+        </section>
+        <div>
+            <div id="footer-logo">
+                <img src="/images/logo.png" alt="Neuravers logo">
+                <h4>NEURAVERS</h4>
+            </div>
+            <p>&copy; 2025 Neuravers. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
