@@ -202,6 +202,8 @@
 #search-results mark {
     background-color: #00ff95;
     color: black;
+    margin: 0 0.5rem;
+    padding: 0 0.5rem;
 }
 
 .search-result-item {
@@ -268,11 +270,25 @@
     text-align: center;
 }
 
-.slider-item {
+.slider-item>a {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    text-decoration: none;
+    color: inherit;
+}
+
+.slider-item>a:hover,
+.slider-item>a:focus,
+.slider-item>a:active,
+.slider-item>a:visited {
+    text-decoration: none;
+    /* żadnych podkreśleń */
+    color: inherit;
+    /* brak zmiany koloru */
+    outline: none;
+    /* opcjonalnie, jeśli nie chcesz obramowania focus */
 }
 
 .slider-item img {
@@ -326,7 +342,7 @@
         align-items: center;
     }
 
-    .slider-item {
+    .slider-item>a {
         flex-direction: column;
     }
 

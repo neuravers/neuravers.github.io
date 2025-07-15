@@ -6,6 +6,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const lastItem = items[items.length - 1];
     const clonedFirstItem = firstItem.cloneNode(true);
     const clonedLastItem = lastItem.cloneNode(true);
+    clonedFirstItem.querySelectorAll('a').forEach(a => {
+        const content = a.innerHTML;
+        const parent = a.parentNode;
+        parent.removeChild(a);
+        parent.innerHTML += content;
+    });
+    clonedLastItem.querySelectorAll('a').forEach(a => {
+        const content = a.innerHTML;
+        const parent = a.parentNode;
+        parent.removeChild(a);
+        parent.innerHTML += content;
+    });
 
     newsTrack.appendChild(clonedLastItem);
     newsTrack.insertBefore(clonedFirstItem, newsTrack.firstChild);

@@ -78,17 +78,19 @@ document.addEventListener("DOMContentLoaded", () => {
     function postHtml(post) {
         return `
     <div class="slider-item">
-      <img src="${post.image || 'images/default.png'}" alt="${post.title || 'Untitled Post'}">
-      <div>
-        <h4>${post.title || 'Untitled Post'}</h4>
-        <h4>${post.subcategory || 'Uncategorized'}</h4>
-        <span>
-          <p>${post.date || 'Unknown Date'}</p>
-          <p>${post.readingTime || 'Unknown Read Time'}</p>
-        </span>
-      </div>
+      <a href="${post.url}">
+        <img src="${post.image || 'images/default.png'}" alt="${post.title || 'Untitled Post'}">
+        <div>
+          <h4>${post.title || 'Untitled Post'}</h4>
+          <h4>${post.subcategory || 'Uncategorized'}</h4>
+          <span>
+            <p>${post.date || 'Unknown Date'}</p>
+            <p>${post.readingTime || 'Unknown Read Time'}</p>
+          </span>
+        </div>
+      </a>
     </div>
-  `;
+    `;
     }
 
 
