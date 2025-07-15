@@ -185,3 +185,7 @@ article pre>code::before {
 article pre>code::after {
     content: "";
 }
+
+br {
+    margin-top: 10rem;
+}
