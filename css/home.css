@@ -148,8 +148,9 @@
     width: 100%;
 }
 
-.news-item div h4:nth-child(2) {
+.news-item div h5:nth-child(2) {
     color: #BABABA;
+    font-size: 1rem;
 }
 
 #best-of-posts {

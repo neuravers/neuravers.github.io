@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function renderPosts(forceRefresh = false) {
-        const postsPerPage = 1; // lub Twoja wartość
+        const postsPerPage = 10; // lub Twoja wartość
         const startIndex = 0;
         const endIndex = currentPage * postsPerPage;
 
@@ -290,24 +290,4 @@ document.addEventListener("DOMContentLoaded", () => {
         const walk = (x - startX) * 2;
         searchResults.scrollLeft = scrollLeft - walk;
     });
-
-    // Obsługa dotyku (mobile)
-    searchResults.addEventListener("touchstart", (e) => {
-        isDragging = true;
-        startX = e.touches[0].pageX - searchResults.offsetLeft;
-        scrollLeft = searchResults.scrollLeft;
-    });
-
-    searchResults.addEventListener("touchend", () => {
-        isDragging = false;
-    });
-
-    searchResults.addEventListener("touchmove", (e) => {
-        if (!isDragging) return;
-        const x = e.touches[0].pageX - searchResults.offsetLeft;
-        const walk = (x - startX) * 2;
-        searchResults.scrollLeft = scrollLeft - walk;
-    });
-    // ...existing code...
-
 });

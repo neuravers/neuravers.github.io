@@ -114,4 +114,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const clonedItem = sliderItems[i].cloneNode(true);
         slider.appendChild(clonedItem);
     }
+
+    newsTrack.addEventListener('transitionend', () => {
+        const activeItem = newsTrack.querySelector('.news-item-active');
+        if (activeItem) {
+            newsTrack.style.height = activeItem.offsetHeight + 'px';
+        }
+    }, { once: true });
 });

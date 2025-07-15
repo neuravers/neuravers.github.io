@@ -197,6 +197,11 @@ footer.menu-open {
 
 }
 
+.active-menu-link {
+    color: white !important;
+    font-weight: 600;
+}
+
 @media screen and (min-width: 450px) {
 
     main.menu-open,
