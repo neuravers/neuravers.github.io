@@ -1,0 +1,133 @@
+#about-content {
+    margin-top: 8rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#about-content-left {
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    text-align: left;
+    gap: 4rem;
+}
+
+.about-content-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.about-content-item h2 {
+    margin-bottom: 0.5rem;
+}
+
+#projects-section .section-header:nth-child(2) {
+    text-align: left;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 4rem;
+}
+
+#projects-section .section-header:nth-child(2)>h3 {
+    color: #999999;
+}
+
+#news-carousel {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 2rem;
+    gap: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    max-width: 1600px
+}
+
+.news-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    justify-content: center;
+    gap: 1rem;
+    opacity: 0.6;
+    flex: 0 0 60%;
+    font-size: 0.8rem;
+}
+
+.news-item-active {
+    opacity: 1;
+    flex: 0 0 70%;
+    font-size: 1rem;
+}
+
+.news-item img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 9px;
+}
+
+@media screen and (min-width: 540px) {
+
+    .news-item {
+        flex: 0 0 40%;
+    }
+
+    .news-item-active {
+        flex: 0 0 50%;
+    }
+}
+
+@media screen and (min-width: 750px) {
+
+    .news-item {
+        flex: 0 0 30%;
+    }
+
+    .news-item-active {
+        flex: 0 0 40%;
+    }
+}
+
+@media screen and (min-width: 900px) {
+
+    .news-item {
+        flex: 0 0 20%;
+        font-size: 0.6rem;
+    }
+
+    .news-item-active {
+        flex: 0 0 30%;
+        font-size: 1rem;
+    }
+
+    .news-item-almost-active {
+        flex: 0 0 25%;
+        opacity: 0.8;
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (min-width: 1150px) {
+
+    .news-item {
+        flex: 0 0 10%;
+    }
+
+    .news-item-active {
+        flex: 0 0 20%;
+    }
+
+    .news-item-almost-active {
+        flex: 0 0 15%;
+        opacity: 0.8;
+    }
+}
