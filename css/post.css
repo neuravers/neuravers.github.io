@@ -1,0 +1,299 @@
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 8rem;
+}
+
+main>div {
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+article {
+    max-width: 600px;
+    width: 100%;
+}
+
+aside {
+    position: fixed;
+    /* lub fixed, jeśli ma być zawsze na ekranie */
+    top: 4.5rem;
+    /* wysokość nagłówka, np. 80px lub 5rem */
+    align-self: flex-start;
+    justify-content: space-between;
+    /* ważne w flexboxie! */
+    height: fit-content;
+    /* dopasuj do zawartości */
+    flex-direction: row;
+    display: flex;
+    visibility: hidden;
+    gap: 1rem;
+    color: #999999;
+    width: 100%;
+    background-color: black;
+    padding: 0.5rem 10vw 0.5rem 10vw;
+    z-index: 1000;
+    border-top: 1px solid #111111;
+}
+
+.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+aside ul {
+    position: static;
+    top: auto;
+    list-style: none;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex-grow: 0;
+}
+
+aside ul li {
+    display: none;
+}
+
+aside ul li a {
+    color: #d1d5db;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+aside ul li.active-header {
+    display: list-item;
+    z-index: 100000;
+}
+
+aside>button {
+    background: none;
+    border: none;
+    color: #999999;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    height: min-content;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+aside>button img {
+    margin-left: auto;
+    width: 1rem;
+    height: 1rem;
+}
+
+aside ul li.active-header a {
+    color: white;
+    font-weight: 600;
+}
+
+aside ul.expanded li {
+    display: list-item;
+}
+
+aside h4 {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.active-header {
+    color: white;
+    font-weight: 600;
+}
+
+article section {
+    margin-top: 8rem;
+}
+
+article section h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+article section p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #d1d5db;
+}
+
+article section img {
+    width: 100%;
+    border-radius: 9px;
+    margin-bottom: 1rem;
+    max-width: 600px;
+}
+
+article section ul {
+    margin-left: 1.5rem;
+    color: #d1d5db;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+article section ul li {
+    padding-left: 0.5rem;
+}
+
+article section ul li::marker {
+    color: #4b5563;
+}
+
+article section ol {
+    margin-left: 1.5rem;
+    color: #d1d5db;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+article section ol li {
+    padding-left: 0.5rem;
+}
+
+article section ol li::marker {
+    color: #4b5563;
+}
+
+article section figure {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+article section figcaption {
+    font-size: 0.9rem;
+    color: #d1d5db;
+}
+
+article section strong {
+    color: white;
+    font-weight: 600;
+}
+
+article section a {
+    color: white;
+    font-weight: 600;
+}
+
+article blockquote {
+    border-left: 4px solid #374151;
+    padding-left: 1rem;
+    margin: 1rem 0;
+}
+
+article blockquote p {
+    color: white;
+    font-style: italic;
+    font-weight: 600;
+    margin-bottom: 0;
+    display: inline;
+}
+
+article blockquote p::before {
+    content: "“";
+}
+
+article blockquote p::after {
+    content: "”";
+}
+
+article blockquote footer {
+    all: unset;
+    display: inline;
+}
+
+article blockquote footer cite {
+    font-weight: 400;
+    color: #d1d5db;
+
+}
+
+article blockquote footer cite::before {
+    content: " — ";
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+article q {
+    color: white;
+    font-style: italic;
+    font-weight: 600;
+}
+
+article code {
+    color: white;
+    font-weight: 600;
+}
+
+article code::before {
+    content: "‘";
+}
+
+article code::after {
+    content: "’";
+}
+
+article pre>code {
+    all: unset;
+}
+
+article pre>code::before {
+    content: "";
+}
+
+article pre>code::after {
+    content: "";
+}
+
+br {
+    margin-top: 0.5rem;
+}
+
+@media screen and (min-width: 900px) {
+    aside {
+        all: unset;
+        position: sticky;
+        top: 1rem;
+        width: auto;
+        /* Allow aside to take as much space as needed */
+        min-width: auto;
+        /* Remove minimum width constraint */
+        max-width: none;
+        /* Remove maximum width constraint */
+        visibility: visible;
+        opacity: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        background: none;
+        padding: 0;
+        border: none;
+    }
+
+    aside ul {
+        margin-top: 10.7rem;
+    }
+
+    aside ul li {
+        display: list-item;
+    }
+
+    aside ul li a {
+        font-size: 1rem;
+    }
+
+    aside button {
+        display: none;
+    }
+}
