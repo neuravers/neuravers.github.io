@@ -16,14 +16,6 @@
       "url": "/posts/best/pierwszy copy 2/"
     }
     ,{
-      "image": "/images/abstract2.png",
-      "title": "Introduction to NLP",
-      "subcategory": "NLP",
-      "date": "21 Jul 2025",
-      "readingTime": "1 min read",
-      "url": "/posts/news/pierwszy/"
-    }
-    ,{
       "image": "/images/abstract.png",
       "title": "Introduction to NLP",
       "subcategory": "NLP",
@@ -45,6 +37,6 @@
       "subcategory": "NLP",
       "date": "12 Jul 2025",
       "readingTime": "1 min read",
-      "url": "/posts/news/pierwszy copy 2/"
+      "url": "/posts/news/pierwszy/"
     }
     ]
