@@ -32,6 +32,14 @@
       "url": "/posts/best/pierwszy/"
     }
     ,{
+      "image": "/images/abstract3.png",
+      "title": "Implementation of a simple autocorrect",
+      "subcategory": "NLP",
+      "date": "19 Jul 2025",
+      "readingTime": "6 min read",
+      "url": "/posts/news/simple-autocorrect/"
+    }
+    ,{
       "image": "/images/abstract2.png",
       "title": "Introduction to NLP",
       "subcategory": "NLP",
