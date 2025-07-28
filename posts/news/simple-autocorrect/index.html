@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Implementation of a simple autocorrect</title>
+        <title>Simple autocorrect</title>
         <!-- Stylesheets -->
         <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" href="/css/header.css">
@@ -76,7 +76,7 @@
                     <h5>NLP</h5>
                     <h5>6 min read</h5>
                 </div>
-                <h1>Implementation of a simple autocorrect</h1>
+                <h1>Simple autocorrect</h1>
                 <p>A short post explaining how a simple probabilistic autocorrect system works. I show how to build it and briefly mention more advanced systems used by big tech companies.</p>
                 <img src="/images/abstract3.png" alt="Post main section image"/>
                 <span></span>
@@ -138,6 +138,14 @@ total_words = len(words)
 word_probabilities = {}
 for word, count in word_count.items(): # (word, count) pairs from word_count
     word_probabilities[word] = count / total_words
+
+# Create a dictionary with words grouped by their length
+words_by_length = {}
+for word in unique_words:
+    length = len(word)
+    if length not in words_by_length:
+        words_by_length[length] = []
+    words_by_length[length].append(word)
 </code></pre>
 </section><section><h1>Implementation</h1>
 <p><strong>Let’s implement the Levenshtein algorithm</strong>, which calculates the <strong>minimum number of operations</strong> required to transform one word into another.</p>
@@ -195,11 +203,9 @@ into smaller subproblems: specifically,
     # Find similar words
     similar_words = []
     for length in suggested_words_length:
-        if length in words_by_length:
-            for candidate in words_by_length[length]:
-                # Check if the candidate word is similar enough
-                if levenshtein_distance(word, candidate) &lt;= edit_distance and candidate.startswith(word[0]):
-                    similar_words.append(candidate)
+        # Check if the candidate word is similar enough
+        if levenshtein_distance(word, candidate) &lt;= edit_distance and candidate.startswith(word[0]):
+            similar_words.append(candidate)
 
     # If no similar words found, return the original word (it might be correct but not in the dictionary)
     if not similar_words:

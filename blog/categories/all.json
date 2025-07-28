@@ -25,7 +25,7 @@
         }
         ,{
             "image": "/images/abstract3.png",
-            "title": "Implementation of a simple autocorrect",
+            "title": "Simple autocorrect",
             "subcategory": "NLP",
             "date": "19 Jul 2025",
             "readingTime": "6 min read",
