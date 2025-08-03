@@ -144,30 +144,23 @@ document.addEventListener('DOMContentLoaded', function () {
     // Domyślne stany
     upperMain.style.opacity = '1';
     upperInnerItems.forEach(item => {
-        item.style.opacity = '0.5';
+        item.style.opacity = '0.8';
     });
     lower.style.opacity = '1';
 
-    // Obsługa hover na całym upper-inner
-    upperInner.addEventListener('mouseenter', () => {
-        upperMain.style.opacity = '0.5'; // schowaj główne
-        lower.style.opacity = '0.5'; // schowaj lower
-    });
-
-    upperInner.addEventListener('mouseleave', () => {
-        upperMain.style.opacity = '1'; // pokaż główne
-        lower.style.opacity = '1';     // pokaż lower
-        upperInnerItems.forEach(item => item.style.opacity = '0.5');
-    });
-
-    // Obsługa hover na każdym itemie wewnętrznym
     upperInnerItems.forEach(item => {
         item.addEventListener('mouseenter', () => {
-            upperInnerItems.forEach(i => i.style.opacity = '0.5'); // reset
-            item.style.opacity = '1';
+            upperInnerItems.forEach(i => i.style.opacity = '0.8'); // reset
+            item.style.opacity = '1'; // aktywuj hover na tym elemencie
+            upperMain.style.opacity = '0.8'; // schowaj główne
+            lower.style.opacity = '0.8'; // schowaj lower
         });
         item.addEventListener('mouseleave', () => {
-            item.style.opacity = '0.5';
+            item.style.opacity = '0.8'; // przywróć domyśln
+            upperInnerItems.forEach(i => i.style.opacity = '0.8'); // reset
+            upperMain.style.opacity = '1'; // pokaż główne
+            lower.style.opacity = '1'; // pokaż lower
         });
     });
+
 });

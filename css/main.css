@@ -84,7 +84,7 @@ main {
 }
 
 #main-section>div>h5 {
-    color: #5e5e5e;
+    color: #999999;
     font-size: 0.75rem;
 }
 
@@ -97,7 +97,7 @@ main {
 }
 
 #main-section>span {
-    background-color: #111111;
+    background-color: #222222;
     padding: 1px;
     border-radius: 9px;
     max-width: 900px;

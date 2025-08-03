@@ -72,6 +72,7 @@
 
 #filter {
     position: relative;
+    z-index: 10;
 }
 
 #filter>button {
@@ -129,6 +130,7 @@
 
 #sort {
     position: relative;
+    z-index: 10;
 }
 
 #sort>button {
@@ -270,6 +272,17 @@
     text-align: center;
 }
 
+
+.slider-item {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.slider-item:hover {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
 .slider-item>a {
     display: flex;
     align-items: center;
@@ -315,6 +328,10 @@
     justify-content: space-between;
     width: 100%;
 
+}
+
+.slider-item span>p {
+    color: #999999;
 }
 
 #blog-pagination {
@@ -366,4 +383,10 @@
         width: 278px;
     }
 
+}
+
+@media screen and (min-width: 900px) {
+    .slider-item {
+        opacity: 0.8;
+    }
 }

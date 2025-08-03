@@ -94,7 +94,7 @@
 .news-item {
     flex: 0 0 auto;
     margin-left: 2rem;
-    opacity: 0.6;
+    opacity: 0.8;
     width: 60vw;
     scroll-snap-align: center;
     transition: opacity 0.6s ease, flex 0.6s ease, font-size 0.6s ease, width 0.6s ease;
@@ -152,6 +152,10 @@
     width: 100%;
 }
 
+.news-item-b span p {
+    color: #999999;
+}
+
 .news-item div h5:nth-child(2) {
     color: #d1d5db;
     font-size: 1rem;
@@ -201,6 +205,13 @@
 .slider-item {
     width: 100%;
     max-width: 400px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.slider-item:hover {
+    opacity: 1;
+    transition: opacity 0.3s ease;
 }
 
 .slider-item>a {
@@ -246,6 +257,10 @@
     gap: 0.25rem;
 }
 
+.slider-item div>span>p {
+    color: #999999;
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -253,11 +268,11 @@ a {
 }
 
 .section-header h3 {
-    color: #d1d5db;
+    color: #999999;
 }
 
 #posts-slider-header h3 {
-    color: #d1d5db;
+    color: #999999;
 }
 
 a:hover,
@@ -337,7 +352,7 @@ a:visited {
     }
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 600px) {
     .fog {
         opacity: 0.7;
     }
@@ -378,6 +393,10 @@ a:visited {
         justify-content: center;
         width: 100%;
         min-width: max-content;
+    }
+
+    .slider-item {
+        opacity: 0.8;
     }
 
     .slider-item>a {

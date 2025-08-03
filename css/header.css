@@ -207,6 +207,23 @@ footer.menu-open {
     font-weight: 600;
 }
 
+#language-popup {
+    position: fixed;
+    top: 8rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 1);
+    color: white;
+    padding: 1rem;
+    border-radius: 9px;
+    border: 1px solid #222222;
+    z-index: 100000000;
+    width: 80vw;
+    max-width: max-content;
+    font-weight: 600;
+    display: none;
+}
+
 @media screen and (min-width: 450px) {
 
     main.menu-open,

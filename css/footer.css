@@ -13,6 +13,10 @@ footer {
     text-align: center;
 }
 
+footer p {
+    color: #999999;
+}
+
 #footer-logo {
     display: flex;
 

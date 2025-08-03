@@ -30,4 +30,16 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = "mailto:";
         });
     }
+
+    // Show popup on language selector for 3 seconds
+    const languageSelector = document.querySelector("#language-selector");
+    const popup = document.querySelector("#language-popup");
+    if (languageSelector) {
+        languageSelector.addEventListener("click", () => {
+            popup.style.display = "block";
+            setTimeout(() => {
+                popup.style.display = "none";
+            }, 3000);
+        });
+    }
 });
