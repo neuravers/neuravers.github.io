@@ -212,8 +212,8 @@ footer.menu-open {
     top: 8rem;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 1);
-    color: white;
+    background-color: #161616;
+    color: #d1d5db;
     padding: 1rem;
     border-radius: 9px;
     border: 1px solid #222222;

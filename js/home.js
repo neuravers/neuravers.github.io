@@ -144,20 +144,20 @@ document.addEventListener('DOMContentLoaded', function () {
     // Domyślne stany
     upperMain.style.opacity = '1';
     upperInnerItems.forEach(item => {
-        item.style.opacity = '0.8';
+        item.style.opacity = '0.9';
     });
     lower.style.opacity = '1';
 
     upperInnerItems.forEach(item => {
         item.addEventListener('mouseenter', () => {
-            upperInnerItems.forEach(i => i.style.opacity = '0.8'); // reset
+            upperInnerItems.forEach(i => i.style.opacity = '0.9'); // reset
             item.style.opacity = '1'; // aktywuj hover na tym elemencie
-            upperMain.style.opacity = '0.8'; // schowaj główne
-            lower.style.opacity = '0.8'; // schowaj lower
+            upperMain.style.opacity = '0.9'; // schowaj główne
+            lower.style.opacity = '0.9'; // schowaj lower
         });
         item.addEventListener('mouseleave', () => {
-            item.style.opacity = '0.8'; // przywróć domyśln
-            upperInnerItems.forEach(i => i.style.opacity = '0.8'); // reset
+            item.style.opacity = '0.9'; // przywróć domyśln
+            upperInnerItems.forEach(i => i.style.opacity = '0.9'); // reset
             upperMain.style.opacity = '1'; // pokaż główne
             lower.style.opacity = '1'; // pokaż lower
         });

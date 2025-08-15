@@ -28,10 +28,11 @@
     color: #999999;
     font-family: 'Inter', sans-serif;
     font-size: 0.85rem;
+    border: 1px solid #222222;
 }
 
 #search-container button {
-    margin-left: -1rem;
+    margin-left: -1.5rem;
     padding: 1rem 2rem;
     border-radius: 9px;
     border: none;
@@ -59,9 +60,11 @@
     border-radius: 9px;
     background-color: #161616;
     border: none;
-    color: #999999;
+    color: #d1d5db;
     font-family: 'Inter', sans-serif;
     font-size: 0.85rem;
+    border-radius: 9px;
+    border: 1px solid #222222;
 }
 
 #blog-filters img {
@@ -387,6 +390,6 @@
 
 @media screen and (min-width: 900px) {
     .slider-item {
-        opacity: 0.8;
+        opacity: 0.9;
     }
 }
