@@ -258,7 +258,8 @@ article pre>code::after {
 }
 
 br {
-    margin-top: 0.5rem;
+    display: block;
+    margin-top: 1rem;
 }
 
 @media screen and (min-width: 900px) {
@@ -270,7 +271,7 @@ br {
         /* Allow aside to take as much space as needed */
         min-width: auto;
         /* Remove minimum width constraint */
-        max-width: none;
+        max-width: 300px;
         /* Remove maximum width constraint */
         visibility: visible;
         opacity: 1;

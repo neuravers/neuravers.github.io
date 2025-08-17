@@ -6,7 +6,6 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    user-select: none;
 }
 
 html {
@@ -85,7 +84,7 @@ main {
 
 #main-section>div>h5 {
     color: #999999;
-    font-size: 0.75rem;
+    font-size: 0.85rem;
 }
 
 #main-section>img {

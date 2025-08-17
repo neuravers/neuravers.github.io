@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Introduction to CNNs</title>
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/header.css">
+        <link rel="stylesheet" href="/css/footer.css">
+        <link rel="stylesheet" href="/css/post.css">
+        <link rel="stylesheet" href="/css/prism.css">
+        <link
+        rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css"
+            integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP"
+            crossorigin="anonymous">
+        <!-- JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+        <script src="/js/header.js" defer></script>
+        <script src="/js/prism.js" defer></script>
+        <script src="/js/post.js" defer></script>
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"
+            integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6"
+            crossorigin="anonymous"></script>
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"
+            integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh"
+            crossorigin="anonymous"
+            onload="renderMathInElement(document.body);"></script>
+    </head>
+    <body>
+        <header>
+            <div id="logo-container">
+                <img src="/images/logo.png" alt="Neuravers logo">
+            </div>
+            <span id="blog-name">NEURAVERS</span>
+            <div id="menu-container">
+                <nav>
+                    <ul>
+                        <li><a href="/" style="color: #999999;">Home</a></li>
+                        <li><a href="/blog/" style="color: #999999;">Blog</a></li>
+                        <li><a href="/about/" style="color: #999999;">About</a></li>
+                        <li><a class="contact-button" style="color: #999999;">Contact</a></li>
+                    </ul>
+                </nav>
+                <div id="menu-button">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div id="sidebar-menu">
+                    <nav>
+                        <ul>
+                            <li><a href="/" style="color: #999999;">Home</a></li>
+                            <li><a href="/blog/" style="color: #999999;">Blog</a></li>
+                            <li><a href="/about/" style="color: #999999;">About</a></li>
+                            <li><a class="contact-button" style="color: #999999;">Contact</a></li>
+                        </ul>
+                    </nav>
+                    <div id="language-selector">
+                        <img src="/images/language-english.png" alt="English language">
+                        <span>English</span>
+                        <img src="/images/arrow-down.png" alt="Arrow down">
+                    </div>
+                </div>
+            </div>
+            <div id="language-popup">
+                There are no other languages available at the moment.
+            </div>
+        </header>
+        <main>
+            <section id="main-section" data-pagefind-body>
+                <div>
+                    <h5>Computer Vision</h5>
+                    <h5>7 min read</h5>
+                </div>
+                <h1>Introduction to CNNs</h1>
+                <p>A short intro post about convolutional neural networks — what they’re used for, how they’re built, and a few thoughts along the way. I’ll just go over the basics of how these networks learn. This post is meant to be a good starting point for diving deeper into CNNs.</p>
+                <img src="/images/abstract.png" alt="Post main section image"/>
+                <span></span>
+            </section>
+            <div>
+                <article data-pagefind-body>
+                    <section><h1>Introduction</h1>
+<p>Convolutional neural networks have wide applications in the fields of <strong>computer vision</strong>, <strong>signal processing</strong>, and <strong>time series analysis</strong>.
+One of the most fascinating applications is <strong>computer vision</strong> – it gives machines a kind of "sight", enabling them to interact more effectively with the world around us.</p>
+<p>A good example is <strong>autonomous cars</strong>, which are capable of driving on their own. CNNs form part of larger models, which nowadays often also make use of <strong>Transformers</strong> (<a href="https://arxiv.org/pdf/1706.03762">Attention Is All You Need</a>).</p>
+<p><img src="/images/blog/introduction-to-cnns/yolo.png" alt="YOLO Object Detection"></p>
+<h2>Advantages of CNNs over Classical Neural Networks</h2>
+<br>
+<p>One of the main advantages of CNNs over classical neural networks (fully connected, not combined with another architecture like CNNs) is the <strong>smaller number of parameters to learn</strong> (while maintaining the same or even better accuracy).</p>
+<p><img src="/images/blog/introduction-to-cnns/cnn-accuracy.png" alt="CNN Accuracy">
+<a href="https://arxiv.org/pdf/2010.01369">https://arxiv.org/pdf/2010.01369</a>
+<br></p>
+<p>This is achieved through the use of <strong>filters (often called kernels in the literature)</strong>. A filter is a small weight matrix (e.g., 3×3, 5×5) that slides over the image and performs a convolution operation (<a href="https://ezyang.github.io/convolution-visualizer/">Visual Example</a>). If you are a mathematician, you might say: <strong>"Hey, but this is actually cross-correlation, not convolution!"</strong> – and you would be correct. In <strong>cross-correlation</strong>, the signal (or filter) is not flipped.
+However, in practice, we usually call it <strong>convolution</strong> because the learning algorithm can adjust the filter weights if flipping is necessary. In this sense, calling it convolution is a more general statement. The reduced number of parameters also benefits the learning process, making the network <strong>more resistant to overfitting (given a sufficiently large dataset)</strong> and allowing it to <strong>learn faster</strong>. Additionally, these networks <strong>generalize better</strong> and <strong>require less training data</strong> than classical neural networks to achieve higher accuracy.</p>
+<p><img src="/images/blog/introduction-to-cnns/cnn-generalization.png" alt="CNN Generalization">
+<a href="https://arxiv.org/pdf/2010.01369">https://arxiv.org/pdf/2010.08515</a>
+<br></p>
+<p>This stems from the built-in <strong>inductive bias</strong> – in convolutional networks, filters learn to detect local patterns (e.g., edges, corners), and successive layers combine these features into increasingly complex structures. As a result, the network <strong>assumes certain properties of images</strong> – locality, translational invariance, and weight sharing – instead of learning them from scratch.</p>
+</section><section><h1>Convolution: The Mathematical Operation Behind CNNs</h1>
+<p>The <strong>convolution operation</strong> in mathematics is defined as follows (<strong>continuous case</strong>):</p>
+<p>$$
+(f * g)(t) = \int_{-\infty}^{\infty} f(\tau) , g(t - \tau) , d\tau
+$$</p>
+<p>which is interpreted as:</p>
+<p><img src="/images/blog/introduction-to-cnns/colored-math.png" alt="Colored math">
+<a href="https://betterexplained.com/articles/intuitive-convolution/">https://betterexplained.com/articles/intuitive-convolution/</a>
+<br></p>
+<p>In the discrete case, such as <strong>when processing images</strong>, the convolution is defined as:
+$$
+S(i, j) = (I * K)(i, j) = \sum_m \sum_n I(i - m, j - n) , K(m, n)
+$$</p>
+<p><strong>Where:</strong></p>
+<ul>
+<li>pixel value of the input image at position <strong>(i, j)</strong>:
+$$ I(i, j) $$</li>
+<li>value of the filter (kernel) at position <strong>(m, n)</strong>:
+$$ K(m, n) $$</li>
+<li>resulting pixel value in the output feature map:
+$$ S(i, j) $$</li>
+</ul>
+<p><strong>To better understand this operation in depth</strong>, I recommend the following link: <a href="https://www.youtube.com/watch?v=KuXjwB4LzSA">3Blue1Brown - But what is a convolution?</a> starting at 6:30.</p>
+<p><img src="/images/blog/introduction-to-cnns/conv-example.png" alt="Example of convolution"></p>
+</section><section><h1>Example of a CNN</h1>
+<p>In practice, a single convolutional layer typically uses <strong>more than one filter</strong>. The resulting feature maps from each filter are <strong>stacked together</strong> and passed to the next layers. At the end, all feature maps are often <strong>flattened into a single vector</strong>, which serves as the input to a fully connected neural network. Additionally, for example, in <strong>classification tasks</strong>, the final layer usually applies the <strong>softmax function</strong> to produce class probabilities.</p>
+<p><img src="/images/blog/introduction-to-cnns/cnn-example.png" alt="Example of CNN"></p>
+<p>At this point, let's pause to explain a few things. <strong>Padding</strong> means adding extra pixels on each side of the input (if you imagine a <strong>framed picture</strong>, the frame is essentially the padding). Padding helps us <strong>preserve more information at the borders of an image</strong>. Without padding, only a few values in the next layer would be influenced by pixels at the edges. It also <strong>allows us to maintain the original input size</strong> of the image. The output size is given by the following formula:
+$$
+H_\text{out} = \left\lfloor \frac{H - F + 2P}{S} \right\rfloor + 1
+$$
+$$
+W_\text{out} = \left\lfloor \frac{W - F + 2P}{S} \right\rfloor + 1
+$$</p>
+<p><strong>Where</strong>:</p>
+<ul>
+<li><strong>H</strong> – height of the input image</li>
+<li><strong>W</strong> – width of the input image</li>
+<li><strong>P</strong> – padding (border with values usually set to 0)</li>
+<li><strong>S</strong> – stride (instead of moving the filter by 1, we move it by S pixels)</li>
+</ul>
+<p>In short: we first <strong>compute the total dimension of the input matrix including padding</strong> and treat this as our effective input. Then we <strong>subtract the filter size (this gives the number of positions the filter can move by 1 in the remaining space)</strong>, <strong>divide by the stride S (we skip every S-th position)</strong>, and finally <strong>add 1 (remember that the filter starts at the top-left corner)</strong>.</p>
+<p><strong>Padding can be either</strong>:</p>
+<ul>
+<li><strong>valid</strong> – no padding (output size is smaller than the input)</li>
+<li><strong>same</strong> – padding is applied so that the output has the same size as the input
+<br></li>
+</ul>
+<p><strong>Max-Pooling</strong> works on the same principle as a sliding window, but it performs a different operation – it takes the <strong>maximum value</strong> within the window. As a result, there are <strong>no learnable parameters</strong> in this layer. Besides max-pooling, there is also <strong>average-pooling</strong>, which computes the <strong>arithmetic mean</strong> of all elements in the window. They are used to reduce the size of the input and help make feature detectors more invariant to the features’ positions within the input.</p>
+<p><strong>Flatten</strong> combines the input into a <strong>single vector of numbers</strong>, converting multi-dimensional data (like feature maps) into a one-dimensional array for the next layer, typically a fully connected (dense) layer.</p>
+<p><strong>Dropout</strong> is a regularization technique used to <strong>prevent overfitting</strong> in neural networks. During training, it <strong>randomly "drops" a fraction of neurons</strong> (sets their output to zero) in a layer for each forward pass. This forces the network to <strong>not rely too heavily on any single neuron</strong> and helps it <strong>generalize better</strong> to new data.</p>
+</section><section><h1>CNN Learning</h1>
+<p>Learning convolutional neural networks follows the <strong>classic neural network training process</strong>, with the key difference that the <strong>network learns filter weights</strong> that detect patterns in images. The goal is to find a set of <strong>weights</strong> that ensures the network’s <strong>output</strong> closely matches the desired <strong>output</strong> for each <strong>input</strong>. Below is a step-by-step overview of the <strong>learning process of a convolutional neural network (CNN)</strong>:</p>
+<ol>
+<li>
+<p><strong>Forward pass</strong></p>
+<ul>
+<li>The <strong>input image</strong> passes through <strong>convolutional</strong> and <strong>pooling layers</strong>.</li>
+<li>Each <strong>filter</strong> detects <strong>characteristic patterns</strong> (e.g., <strong>edges</strong>, <strong>corners</strong>).</li>
+<li>At the end of the <strong>network</strong> (often after <strong>flattening</strong> and <strong>fully connected layers</strong>), we get a <strong>prediction</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Loss computation</strong></p>
+<ul>
+<li>The <strong>prediction</strong> is compared to the <strong>true label</strong> (e.g., <strong>image class</strong>).</li>
+<li>A <strong>loss function</strong> (e.g., <strong>cross-entropy</strong> for <strong>classification</strong>) measures how <strong>wrong</strong> the <strong>network</strong> is.</li>
+</ul>
+</li>
+<li>
+<p><strong>Backward pass (backpropagation)</strong></p>
+<ul>
+<li><strong>Gradients</strong> of the <strong>loss function</strong> with respect to the <strong>filter weights</strong> are computed.</li>
+<li>The <strong>network</strong> learns which <strong>features</strong> are important for <strong>correct classification</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Weight update</strong></p>
+<ul>
+<li><strong>Filter weights</strong> are updated using an <strong>optimization method</strong> (e.g., <strong>Stochastic Gradient Descent</strong>, <strong>Adam</strong>).</li>
+<li>This allows <strong>filters</strong> to better detect <strong>patterns</strong> in <strong>images</strong> over time.</li>
+</ul>
+</li>
+<li>
+<p><strong>Repeat</strong></p>
+<ul>
+<li><strong>Steps 1–4</strong> are repeated for many <strong>images</strong> and <strong>training epochs</strong>.</li>
+<li>Over time, the <strong>network</strong> learns to <strong>generalize patterns</strong> better and <strong>classify new images correctly</strong>.</li>
+</ul>
+</li>
+</ol>
+<p>This is a <strong>challenging topic</strong>, especially <strong>backpropagation</strong>, which requires three key components: a <strong>dataset</strong>, a <strong>feedforward method</strong>, and a <strong>cost function</strong>. I encourage you to look for more information about it online.</p>
+<p>It is also worth knowing that each layer, whether <strong>convolutional</strong> or <strong>pooling</strong>, has its own way of computing its <strong>output</strong>. Connections within a layer or from higher to lower layers are not allowed, although skipping intermediate layers is possible. Moreover, any <strong>input-output function</strong> with a bounded derivative can be used, but combining <strong>inputs</strong> linearly before applying a <strong>nonlinearity</strong> makes <strong>learning</strong> much simpler.</p>
+</section><section><h1>Summary</h1>
+<p>Convolutional neural networks (CNNs) are a <strong>complex topic</strong> and take time to fully grasp. I hope that, at least to some extent, I’ve been able to introduce you to the subject and explain the key concepts. If you want to try working with them in code, I encourage you to take a look at my notebook: <a href="https://github.com/quuixly/SignLanguageImageClassification">Sign Language Image Classification</a></p>
+</section>
+                </article>
+                <aside>
+                    <ul><li><a href="#section-heading-1">Introduction</a></li><li><a href="#section-heading-2">Convolution: The Mathematical Operation Behind CNNs</a></li><li><a href="#section-heading-3">Example of a CNN</a></li><li><a href="#section-heading-4">CNN Learning</a></li><li><a href="#section-heading-5">Summary</a></li></ul>
+                    <button id="toc-toggle" aria-expanded="false"><img src="/images/arrow-down-off.png" alt="Table of Contents">
+                    </button>
+                </aside>
+            </div>
+        </main>
+        <footer>
+            <div>
+                <div id="footer-logo">
+                    <img src="/images/logo.png" alt="Neuravers logo">
+                    <h4>NEURAVERS</h4>
+                </div>
+                <p>&copy; 2025 Neuravers. All rights reserved.</p>
+            </div>
+        </footer>
+    </body>
+</html>

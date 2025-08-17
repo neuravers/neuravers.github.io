@@ -1,5 +1,13 @@
 
 [{
+            "image": "/images/abstract.png",
+            "title": "Introduction to CNNs",
+            "subcategory": "Computer Vision",
+            "date": "17 Aug 2025",
+            "readingTime": "7 min read",
+            "url": "/posts/news/introduction-to-cnns/"
+        }
+        ,{
             "image": "/images/abstract2.png",
             "title": "Introduction to NLP",
             "subcategory": "NLP",
@@ -30,14 +38,6 @@
             "date": "19 Jul 2025",
             "readingTime": "6 min read",
             "url": "/posts/news/simple-autocorrect-system/"
-        }
-        ,{
-            "image": "/images/abstract.png",
-            "title": "Introduction to NLP",
-            "subcategory": "NLP",
-            "date": "12 Jul 2025",
-            "readingTime": "1 min read",
-            "url": "/posts/news/pierwszy/"
         }
         ,{
             "image": "/images/abstract2.png",

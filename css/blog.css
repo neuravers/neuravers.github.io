@@ -99,6 +99,8 @@
     gap: 2rem;
     border-radius: 9px;
     margin-top: 1rem;
+    border-radius: 9px;
+    border: 1px solid #222222;
 }
 
 #filter-options input[type="radio"] {
@@ -154,6 +156,8 @@
     margin-top: 1rem;
     width: max-content;
     right: 0;
+    border-radius: 9px;
+    border: 1px solid #222222;
     transition: opacity 0.01s ease-in-out, visibility 0.01s ease-in-out;
 }
 
@@ -324,6 +328,7 @@
 
 .slider-item h4:nth-child(2) {
     color: #BABABA;
+    font-size: 0.9rem;
 }
 
 .slider-item span {
@@ -335,6 +340,7 @@
 
 .slider-item span>p {
     color: #999999;
+    font-size: 0.9rem;
 }
 
 #blog-pagination {
