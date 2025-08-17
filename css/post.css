@@ -32,7 +32,7 @@ aside {
     visibility: hidden;
     gap: 1rem;
     color: #999999;
-    width: 100%;
+    width: 100vw;
     background-color: black;
     padding: 0.5rem 10vw 0.5rem 10vw;
     z-index: 1000;
@@ -40,6 +40,10 @@ aside {
     border-bottom: 1px solid #222222;
 }
 
+.katex-display {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
 .visible {
     visibility: visible;
     opacity: 1;
