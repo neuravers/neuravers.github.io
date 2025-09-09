@@ -33,6 +33,14 @@
         }
         ,{
             "image": "/images/abstract3.png",
+            "title": "Introduction to NLP",
+            "subcategory": "NLP",
+            "date": "21 Jul 2025",
+            "readingTime": "1 min read",
+            "url": "/posts/best/pierwszy copy 3/"
+        }
+        ,{
+            "image": "/images/abstract3.png",
             "title": "Simple autocorrect system",
             "subcategory": "NLP",
             "date": "19 Jul 2025",
