@@ -1,9 +1,8 @@
 #about-section {
-    margin-top: 8rem;
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: flex-start;
 }
 
@@ -12,13 +11,14 @@
     flex-direction: column;
     max-width: 900px;
     text-align: left;
-    gap: 4rem;
+    gap: 2rem;
+    margin-top: 8rem;
 }
 
 #about-content>div {
     display: flex;
     flex-direction: column;
-    gap: 4rem;
+    gap: 2rem;
 }
 
 .about-content-item {
@@ -36,13 +36,21 @@ section a {
     text-decoration-color: transparent;
 }
 
+#projects-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 #projects-content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 2rem;
     margin-top: 4rem;
+    max-width: 980px;
 }
 
 .project-card {
@@ -51,7 +59,7 @@ section a {
 
 .project-card >img {
     width: 100%;
-    height: auto;
+    height: 182px;
     border-radius: 9px;
 }
 
