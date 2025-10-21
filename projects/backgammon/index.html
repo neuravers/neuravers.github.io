@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>NEURAVERS - Backgammon</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/header.css">
+        <link rel="stylesheet" href="/css/footer.css">
+        <link rel="stylesheet" href="/css/post.css">
+        <link rel="stylesheet" href="/css/prism.css">
+        <link
+        rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css"
+            integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP"
+            crossorigin="anonymous">
+        <!-- JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+        <script src="/js/header.js" defer></script>
+        <script src="/js/prism.js" defer></script>
+        <script src="/js/post.js" defer></script>
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"
+            integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6"
+            crossorigin="anonymous"></script>
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"
+            integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh"
+            crossorigin="anonymous"
+            onload="renderMathInElement(document.body);"></script>
+    </head>
+    <body>
+        <header>
+            <div id="logo-container">
+                <img src="/images/logo.png" alt="Neuravers logo">
+            </div>
+            <span id="blog-name">NEURAVERS</span>
+            <div id="menu-container">
+                <nav>
+                    <ul>
+                        <li><a href="/" style="color: #999999;">Home</a></li>
+                        <li><a href="/blog/" style="color: #999999;">Blog</a></li>
+                        <li><a href="/about/" style="color: #999999;">About</a></li>
+                        <li><a class="contact-button" style="color: #999999;">Contact</a></li>
+                    </ul>
+                </nav>
+                <div id="menu-button">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div id="sidebar-menu">
+                    <nav>
+                        <ul>
+                            <li><a href="/" style="color: #999999;">Home</a></li>
+                            <li><a href="/blog/" style="color: #999999;">Blog</a></li>
+                            <li><a href="/about/" style="color: #999999;">About</a></li>
+                            <li><a class="contact-button" style="color: #999999;">Contact</a></li>
+                        </ul>
+                    </nav>
+                    <div id="language-selector">
+                        <img src="/images/language-english.png" alt="English language">
+                        <span>English</span>
+                        <img src="/images/arrow-down.png" alt="Arrow down">
+                    </div>
+                </div>
+            </div>
+            <div id="language-popup">
+                There are no other languages available at the moment.
+            </div>
+        </header>
+        <main>
+            <section id="main-section" data-pagefind-body>
+                <div>
+                    <h5>Game Development</h5>
+                    <h5>2 min read</h5>
+                </div>
+                <h1>Backgammon</h1>
+                <p>Backgammon is a classic two-player board game that combines strategy and luck. Each player moves their pieces according to dice rolls, aiming to be the first to bear off all their checkers from the board. The game involves tactics such as blocking, hitting, and timing to outsmart the opponent.</p>
+                <img src="/images/projects/backgammon.png" alt="Post main section image"/>
+                <span></span>
+            </section>
+            <div>
+                <article data-pagefind-body>
+                    <section><h1>Introduction</h1>
+<p>This game was written during my <strong>first year of computer science studies</strong> as a way to practice <strong>basic programming concepts</strong> and explore <strong>game logic</strong>. It recreates the classic board game <strong>Backgammon</strong> with simple <strong>terminal-based graphics</strong>, with slightly modified rules based on the professor’s <strong>assignment guidelines</strong>.</p>
+<video controls="">
+  <source src="/videos/backgammon.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+</section><section><h1>How to Play Backgammon</h1>
+<p><strong>Backgammon</strong> is a <strong>two-player strategy game</strong> played on a board with <strong>24 narrow triangles called points</strong>. Each player has <strong>15 checkers</strong> and moves them according to the roll of <strong>two dice</strong>. The goal is to move all your <strong>checkers into your home board</strong> and then <strong>“bear them off”</strong> (remove them from the board) before your opponent does.</p>
+<p>Players move in <strong>opposite directions</strong> around the board. A roll of the dice determines how far the checkers can move. If a checker lands on a point occupied by a <strong>single opponent checker</strong>, that checker is <strong>“hit”</strong> and placed on the <strong>bar</strong>, meaning it must re-enter the game from the opponent’s home board.</p>
+<p><strong>Strategy</strong> involves <strong>blocking your opponent’s moves</strong>, <strong>protecting your own checkers</strong>, and <strong>timing your advances</strong> carefully. The <strong>first player to bear off all their checkers wins the game</strong>.</p>
+</section><section><h1>What I Learned</h1>
+<p>While creating this <strong>Backgammon game</strong>, I gained valuable experience in <strong>C programming</strong> and working with the <strong>ncurses library</strong> for <strong>terminal-based user interfaces</strong>. I learned how to <strong>handle user input</strong>, <strong>manage game state</strong>, and <strong>implement board logic efficiently</strong>. The project also taught me about <strong>debugging</strong>, <strong>structuring larger programs</strong>, and <strong>designing interactive menus</strong>.</p>
+<p>During development, I also encountered a few programming errors that I would now correct, such as <strong>not hiding external libraries behind their API</strong> (e.g., <code>move()</code>, <code>printw()</code>), <strong>removing magic numbers</strong>, and other smaller issues. Overall, it was a great exercise in combining <strong>algorithmic thinking</strong> with <strong>practical interface design</strong>.</p>
+</section><section><h1>Project Link</h1>
+<p>You can check out the full source code of this project on <strong><a href="https://github.com/quuixly/Backgammon">GitHub</a></strong>.</p>
+</section>
+                </article>
+                <aside>
+                    <ul><li><a href="#section-heading-1">Introduction</a></li><li><a href="#section-heading-2">How to Play Backgammon</a></li><li><a href="#section-heading-3">What I Learned</a></li><li><a href="#section-heading-4">Project Link</a></li></ul>
+                    <button id="toc-toggle" aria-expanded="false"><img src="/images/arrow-down-off.png" alt="Table of Contents">
+                    </button>
+                </aside>
+            </div>
+        </main>
+        <footer>
+            <div>
+                <div id="footer-logo">
+                    <img src="/images/logo.png" alt="Neuravers logo">
+                    <h4>NEURAVERS</h4>
+                </div>
+                <p>&copy; 2025 Neuravers. All rights reserved.</p>
+            </div>
+        </footer>
+    </body>
+</html>

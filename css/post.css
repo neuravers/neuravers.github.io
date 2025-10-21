@@ -129,6 +129,10 @@ article section p {
     color: #d1d5db;
 }
 
+article video {
+    width: 100%;
+}
+
 article section img {
     width: 100%;
     border-radius: 9px;
