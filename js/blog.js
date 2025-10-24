@@ -189,6 +189,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     document.querySelectorAll('#category-checkboxes input[type="radio"]').forEach(cb => cb.checked = false);
+    const allRadio = document.getElementById("cat-all");
+    if (allRadio) {
+        allRadio.checked = true;
+        handleCategoryChange();
+    }
 
     // Toggle filter options visibility, by pressing #filter>button
     const filterButton = document.querySelector("#filter > button");
