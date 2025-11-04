@@ -188,7 +188,7 @@ The trick is that we <strong>store the minimum edit distances</strong> for all s
 <br>
 <br>
 <p><img src="/images/blog/introduction-to-dp/dp-array.png" alt="Levenshtein array"></p>
-<p>Now, for each of the remaining empty cells, we simply run our <strong>VAR system</strong>, but with a slight modification. That’s because we can reach a given cell not only through two consecutive different moves, but also through a sequence of the <strong>same moves</strong> — for example, three insertions if we’re in the fifth cell of the first row (a cell with a cost of 4). sSo, what we do is:</p>
+<p>Now, for each of the remaining empty cells, we simply run our <strong>VAR system</strong>, but with a slight modification. That’s because we can reach a given cell not only through two consecutive different moves, but also through a sequence of the <strong>same moves</strong> — for example, three insertions if we’re in the fifth cell of the first row (a cell with a cost of 4). So, what we do is:</p>
 <ul>
 <li>If the characters at the current positions are the same, the cost is simply the value from cell <code>[i-1][j-1]</code></li>
 <li>Otherwise, we look for the cell we could have come from with the <strong>smallest cost</strong> and add <strong>1</strong> (the cost of substitution)</li>
@@ -293,7 +293,7 @@ This algorithm essentially explores the table in a <strong>tree-like manner</str
 <li>What does each <strong>dimension</strong> and each <strong>cell</strong> in the table represent (in the case of a bottom-up approach)?</li>
 <li>What are the <strong>smallest subproblems</strong> that I can later combine into larger ones?</li>
 </ul>
-<p>I hope I managed to give you a clearer idea of what <strong>dynamic programming</strong> is and why it’s worth using whenever possible. I also encourage you to keep exploring the topic — there are many <strong>optimization techniques</strong> out there, including ones that reduce the <strong>memory complexity</strong> of DP algorithms.</p>
+<p>I hope I managed to give you a clearer idea of what <strong>dynamic programming</strong> is and why it’s worth using whenever possible. I also encourage you to keep exploring the topic — there are many <strong>optimization techniques</strong> out there, including ones that reduce the <strong>space complexity</strong> of DP algorithms.</p>
 <p><strong>See you in the next post!</strong></p>
 </section><section><h1>References</h1>
 <blockquote>
