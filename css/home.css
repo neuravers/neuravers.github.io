@@ -322,22 +322,22 @@ a:visited {
 @media screen and (min-width: 540px) {
 
     .news-item {
-        flex: 0 0 40%;
+        flex: 0 0 30%;
     }
 
     .news-item-active {
-        flex: 0 0 50%;
+        flex: 0 0 40%;
     }
 }
 
 @media screen and (min-width: 750px) {
 
     .news-item {
-        flex: 0 0 30%;
+        flex: 0 0 20%;
     }
 
     .news-item-active {
-        flex: 0 0 40%;
+        flex: 0 0 30%;
     }
 
 
@@ -346,11 +346,11 @@ a:visited {
 @media screen and (min-width: 900px) {
 
     .news-item {
-        flex: 0 0 30%;
+        flex: 0 0 20%;
     }
 
     .news-item-active {
-        flex: 0 0 40%;
+        flex: 0 0 30%;
     }
 }
 

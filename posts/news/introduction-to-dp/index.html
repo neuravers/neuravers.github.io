@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>NEURAVERS - Introduction to DP</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/header.css">
+        <link rel="stylesheet" href="/css/footer.css">
+        <link rel="stylesheet" href="/css/post.css">
+        <link rel="stylesheet" href="/css/prism.css">
+        <link
+        rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css"
+            integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP"
+            crossorigin="anonymous">
+        <!-- JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+        <script src="/js/header.js" defer></script>
+        <script src="/js/prism.js" defer></script>
+        <script src="/js/post.js" defer></script>
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"
+            integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6"
+            crossorigin="anonymous"></script>
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"
+            integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh"
+            crossorigin="anonymous"
+            onload="renderMathInElement(document.body);"></script>
+    </head>
+    <body>
+        <header>
+            <div id="logo-container">
+                <img src="/images/logo.png" alt="Neuravers logo">
+            </div>
+            <span id="blog-name">NEURAVERS</span>
+            <div id="menu-container">
+                <nav>
+                    <ul>
+                        <li><a href="/" style="color: #999999;">Home</a></li>
+                        <li><a href="/blog/" style="color: #999999;">Blog</a></li>
+                        <li><a href="/about/" style="color: #999999;">About</a></li>
+                        <li><a class="contact-button" style="color: #999999;">Contact</a></li>
+                    </ul>
+                </nav>
+                <div id="menu-button">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div id="sidebar-menu">
+                    <nav>
+                        <ul>
+                            <li><a href="/" style="color: #999999;">Home</a></li>
+                            <li><a href="/blog/" style="color: #999999;">Blog</a></li>
+                            <li><a href="/about/" style="color: #999999;">About</a></li>
+                            <li><a class="contact-button" style="color: #999999;">Contact</a></li>
+                        </ul>
+                    </nav>
+                    <div id="language-selector">
+                        <img src="/images/language-english.png" alt="English language">
+                        <span>English</span>
+                        <img src="/images/arrow-down.png" alt="Arrow down">
+                    </div>
+                </div>
+            </div>
+            <div id="language-popup">
+                There are no other languages available at the moment.
+            </div>
+        </header>
+        <main>
+            <section id="main-section" data-pagefind-body>
+                <div>
+                    <h5>Dynamic Programming</h5>
+                    <h5>11 min read</h5>
+                </div>
+                <h1>Introduction to DP</h1>
+                <p>This is a brief introduction to dynamic programming. I will explain what dynamic programming is, outline the main methods for solving problems, and provide visualizations to help you better understand and explore this field in the future.</p>
+                <img src="/images/abstract2.png" alt="Post main section image"/>
+                <span></span>
+            </section>
+            <div>
+                <article data-pagefind-body>
+                    <section><h1>Introduction</h1>
+<p>If you’ve read my post about the autocorrect system, you might remember the promise I made back then:</p>
+<blockquote>
+<p>In a future post, I’ll go into more detail about <strong>dynamic programming</strong>.</p>
+</blockquote>
+<p>I always keep my promises (which is why I make them so rarely :) ), so today’s post is all about <strong>dynamic programming</strong>.</p>
+<p>If you’ve been around computer science for a while, you’ve probably heard about programming paradigms like <strong>object-oriented</strong> or <strong>functional programming</strong>. The term <strong>dynamic programming</strong> might sound similar, but it actually refers to something quite different.
+<strong>Dynamic programming</strong> is a method of solving problems by breaking them down into <strong>smaller subproblems</strong> and using the results of already-solved subproblems to build up solutions to larger ones.</p>
+<p>In simple terms, you can think of it like designing a <strong>user interface</strong>: the whole app is the <strong>main problem</strong>, and the subproblems are the individual <strong>UI components</strong> — buttons, forms, info cards, and so on. You combine these smaller parts into bigger sections of the interface, then into full pages, and eventually, you get a <strong>complete app</strong>. Notice that to build the whole application, you first need to create a few larger sections of the UI (like a <strong>navigation bar</strong>, <strong>content panel</strong>, and <strong>footer</strong>). And to build each of those sections, you <strong>reuse smaller, previously designed components</strong>.</p>
+<p>That’s the key idea — when designing each new piece of the UI, you’re relying on ready-made building blocks you’ve already created.</p>
+<p>This explains <strong>when to use dynamic programming</strong>: when there’s <strong>overlap between subproblems</strong> — that is, when the same smaller subproblems appear multiple times while constructing the full solution. By solving and storing those smaller pieces, you can gradually build up the final answer <strong>without repeating work</strong>.</p>
+<p>If, on the other hand, a problem can be solved by combining the results of <strong>non-overlapping subproblems</strong>, that approach is called <strong>divide and conquer</strong>. In app design terms: if every section of your app uses completely <strong>unique elements</strong> (each one has its own distinct buttons, forms, etc.), then that’s <strong>divide and conquer</strong>, not <strong>dynamic programming</strong>!</p>
+</section><section><h1>Problem-Solving Techniques in <strong>Dynamic Programming</strong></h1>
+<p>All problems that can be solved using <strong>dynamic programming</strong> are handled using one of the following approaches:</p>
+<ul>
+<li><strong>Top-down approach</strong></li>
+<li><strong>Bottom-up approach</strong></li>
+</ul>
+<p>These are simply different ways of organizing the computations — deciding how to solve subproblems and in what order.</p>
+<p>In the <strong>bottom-up approach</strong>, you start from the <strong>smallest, simplest pieces</strong> and then combine them step by step into larger and larger parts (just like in the analogy above).</p>
+<p>The <strong>top-down approach</strong> (also known as <strong>recursion with memoization</strong>) works the other way around — you start from the <strong>overall problem</strong> and gradually break it down into <strong>smaller subproblems</strong>.</p>
+<p>In the context of <strong>UI design</strong>, you can think of it like this: first, you sketch out the <strong>entire view</strong> of your app, and then you figure out which components it’s made of. You create each element (like a <strong>login form</strong>, <strong>buttons</strong>, or <strong>text fields</strong>) only when it’s needed — and if a component appears again somewhere else in the app, you <strong>reuse the version you’ve already built</strong> instead of making it from scratch.</p>
+</section><section><h1>Theory in Practice</h1>
+<p>Let’s get back to the topic of our simple <strong>autocorrect system</strong>.<br>
+The goal of autocorrect (for those unfamiliar) is to <strong>find a word from a given dictionary that best matches the word the user typed incorrectly</strong> — usually, it’s the one that can be obtained with the <strong>smallest number of letter changes</strong>. For example, let’s say our dictionary looks like this:</p>
+<pre><code class="language-python">dictionary = ["dog", "bike", "book"]
+</code></pre>
+<p>and the user typed the word <code>buuk</code> on their phone.
+To turn <code>buuk</code> into <code>dog</code>, we need to perform <strong>4 operations</strong>:</p>
+<ol>
+<li><strong>change</strong> <code>b</code> → <code>d</code></li>
+<li><strong>change</strong> <code>u</code> → <code>o</code></li>
+<li><strong>change</strong> <code>u</code> → <code>g</code></li>
+<li><strong>delete</strong> <code>k</code></li>
+</ol>
+<p>Of course, there are <strong>many other possibilities</strong> — some optimal, some not.</p>
+<p>For <code>bike</code>, we need <strong>3 operations</strong>:</p>
+<ol>
+<li><strong>change</strong> <code>u</code> → <code>i</code></li>
+<li><strong>change</strong> <code>u</code> → <code>k</code></li>
+<li><strong>change</strong> <code>k</code> → <code>e</code></li>
+</ol>
+<p>For <code>book</code>, we need only <strong>2 operations</strong>:</p>
+<ol>
+<li><strong>change</strong> <code>u</code> → <code>o</code></li>
+<li><strong>change</strong> <code>u</code> → <code>o</code></li>
+</ol>
+<p>So, the most likely word the user meant to type is <strong><code>book</code></strong>.<br>
+(In real autocorrect systems it’s not quite that simple, but older systems actually worked in a very similar way)</p>
+<p>Now, let’s think about how to write a program that returns the <strong>minimum number of insertions, deletions, or substitutions</strong> (where a substitution counts as one operation, even though it’s technically a delete + insert).</p>
+<p>To visualize this, let’s draw a table like this:
+<img src="/images/blog/introduction-to-dp/array.png" alt="Array"></p>
+<p>Where:</p>
+<ul>
+<li>The <strong>first column</strong> contains the word entered by the user</li>
+<li>The <strong>first row</strong> contains the word we’re comparing it to (the target)</li>
+<li>An extra empty row and column are added at the start to make a “starting point” (the white cell) for the algorithm — this simplifies the code</li>
+<li>We start with the word on the left (in memory)</li>
+<li>We can only move <strong>right</strong> or <strong>down</strong>:</li>
+<li>Moving right means inserting a character from the top word (at column index <code>j</code>)</li>
+<li>Moving down means deleting a character from the left word (at row index <code>i</code>)</li>
+<li>Each pair of different moves is treated as one operation — the system checks whether the insert + delete combo was meant to <strong>replace</strong> a character (1 operation, not 2), or if the characters were actually the same (in which case, there’s no edit at all).</li>
+</ul>
+<video controls="">
+  <source src="/videos/dp-example.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<br>
+<br>
+<p>By checking all possible paths from the <strong>top-left corner</strong> to the <strong>bottom-right corner</strong> — and picking the one with the <strong>smallest total cost</strong> — we get the solution to our problem:</p>
+<video controls="">
+  <source src="/videos/dp-full-example.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<br>
+<p>For the two words above, the <strong>smallest number of edits</strong> we get is <strong>4</strong>.<br>
+Notice that we pass through many of the same cells multiple times, which means we <strong>waste a lot of time recalculating the same values</strong>.<br>
+The time complexity of this algorithm is:</p>
+<p>$$
+O\left(\binom{m+n}{m}\right)
+$$</p>
+<p>Where:</p>
+<ul>
+<li><strong>m</strong> – the number of rows</li>
+<li><strong>n</strong> – the number of columns</li>
+</ul>
+<p>This complexity grows very quickly for large values of <strong>m</strong> and <strong>n</strong>.<br>
+Now, let’s look at an approach that uses <strong>dynamic programming</strong>, where the time complexity is:</p>
+<p>$$
+O(m \cdot n)
+$$</p>
+<p>We’ll use the <strong>bottom-up approach</strong> — starting with the smallest substrings and building up solutions for larger ones.
+The trick is that we <strong>store the minimum edit distances</strong> for all substring pairs in a table, so we don’t have to go through the same cells multiple times.</p>
+<p>To simplify the algorithm, we’ll fill the <strong>first row</strong> and <strong>first column</strong> with values representing the number of insertions and deletions needed:</p>
+<ul>
+<li>the first row shows how many insertions are required to go from an empty string <code>_</code> to the top word up to index <code>j</code>,</li>
+<li>and the first column shows how many deletions are needed to go from the left word down to index <code>i</code>, ending with an empty string <code>_</code>.</li>
+</ul>
+<br>
+<br>
+<p><img src="/images/blog/introduction-to-dp/dp-array.png" alt="Levenshtein array"></p>
+<p>Now, for each of the remaining empty cells, we simply run our <strong>VAR system</strong>, but with a slight modification. That’s because we can reach a given cell not only through two consecutive different moves, but also through a sequence of the <strong>same moves</strong> — for example, three insertions if we’re in the fifth cell of the first row (a cell with a cost of 4). sSo, what we do is:</p>
+<ul>
+<li>If the characters at the current positions are the same, the cost is simply the value from cell <code>[i-1][j-1]</code></li>
+<li>Otherwise, we look for the cell we could have come from with the <strong>smallest cost</strong> and add <strong>1</strong> (the cost of substitution)</li>
+</ul>
+<p>The code for our system would look like this:</p>
+<pre><code class="language-python">    for i in range(1, n):
+        for j in range(1, m):
+            if s1[i - 1] == s2[j - 1]:
+                matrix[i][j] = matrix[i - 1][j - 1]  # Characters are the same, no operation needed
+            else:
+                matrix[i][j] = min(
+                    matrix[i - 1][j] + 1,
+                    matrix[i][j - 1] + 1,
+                    matrix[i - 1][j - 1] + 1
+                )
+</code></pre>
+<p>The entire process of how this algorithm works is shown below:
+<br></p>
+<video controls="">
+  <source src="/videos/dp-levenshtein.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<br>
+<br>
+<p>In the <strong>top-down approach</strong>, we start with the main problem:
+“how many operations are needed to transform <code>buuk</code> into <code>book</code>?”
+and then we divide it into three subproblems:</p>
+<ol>
+<li>How many operations are needed to transform <code>buuk</code> → <code>boo</code></li>
+<li>How many operations are needed to transform <code>buu</code> → <code>book</code></li>
+<li>How many operations are needed to transform <code>buu</code> → <code>boo</code></li>
+</ol>
+<p>Each of these subproblems is then divided in the same way, until we reach one of the <strong>base cases</strong>:</p>
+<ul>
+<li>First word is empty</li>
+<li>Second word is empty</li>
+</ul>
+<p>Additionally, if at any point during the algorithm the characters being compared are the same, we can skip two subproblems using the following logic:</p>
+<pre><code class="language-python">if word1[i - 1] == word2[j - 1]:
+    return levenshtein(word1, word2, i - 1, j - 1)
+</code></pre>
+<p>Visualizing the recursive approach isn’t as neat as the iterative one, so I’m skipping it here.
+This algorithm essentially explores the table in a <strong>tree-like manner</strong>, but because of the order in which the recursive calls are made, it ends up looking pretty chaotic.</p>
+</section><section><h1>Code for Both Approaches</h1>
+<p>Below, I’m sharing the code for both methods:</p>
+<ol>
+<li><strong>Bottom-up</strong></li>
+</ol>
+<pre><code class="language-python">def levenshtein_distance(s1, s2):
+    # s1 = source, s2 = target
+    n = len(s1) + 1  # add an empty character at the beginning of s1
+    m = len(s2) + 1  # add an empty character at the beginning of s2
+    matrix = np.zeros((n, m), dtype=int)
+
+    # The two loops below are used so that we don't have to check bounds in the main loop.
+    # The number of operations needed to convert s1[:i] to an empty string (i.e., deletions)
+    for i in range(n):
+        matrix[i][0] = i
+
+    # The number of operations needed to convert an empty string to s2[:j] (i.e., insertions)
+    for j in range(m):
+        matrix[0][j] = j
+
+    # Compute the Levenshtein distance
+    for i in range(1, n):
+        for j in range(1, m):
+            if s1[i - 1] == s2[j - 1]:
+                matrix[i][j] = matrix[i - 1][j - 1]  # Characters are the same, no operation needed
+            else:
+                matrix[i][j] = min(
+                    matrix[i - 1][j] + 1,
+                    matrix[i][j - 1] + 1,
+                    matrix[i - 1][j - 1] + 1
+                )
+
+    return matrix[n - 1][m - 1]
+</code></pre>
+<ol start="2">
+<li><strong>Top-down</strong></li>
+</ol>
+<pre><code class="language-python">def levenshtein_distance(s1, s2, m, n):
+    # First string is empty
+    if m == 0:
+        return n
+
+    # Second string is empty
+    if n == 0:
+        return m
+
+    # Skip the other two subproblems
+    if s1[m - 1] == s2[n - 1]:
+        return levenshtein_distance(s1, s2, m - 1, n - 1)
+
+    return 1 + min(levenshtein_distance(s1, s2, m, n - 1),
+                   levenshtein_distance(s1, s2, m - 1, n),
+                   levenshtein_distance(s1, s2, m - 1, n - 1))
+</code></pre>
+</section><section><h1>Summary</h1>
+<p>As shown earlier, using <strong>dynamic programming</strong> can significantly speed up your program by <strong>storing and reusing the results of previously solved subproblems</strong>. Dynamic programming is typically used when a problem (technically speaking) involves <strong>overlapping subproblems</strong> — situations where certain computations are repeated and can therefore be cached — and an <strong>optimal substructure</strong>, meaning that the solution to a large problem can be built from the <strong>best solutions to its smaller parts</strong>.</p>
+<p>When you encounter a problem that might be solvable using <strong>DP</strong>, it’s worth asking yourself the following questions:</p>
+<ul>
+<li>What does each <strong>dimension</strong> and each <strong>cell</strong> in the table represent (in the case of a bottom-up approach)?</li>
+<li>What are the <strong>smallest subproblems</strong> that I can later combine into larger ones?</li>
+</ul>
+<p>I hope I managed to give you a clearer idea of what <strong>dynamic programming</strong> is and why it’s worth using whenever possible. I also encourage you to keep exploring the topic — there are many <strong>optimization techniques</strong> out there, including ones that reduce the <strong>memory complexity</strong> of DP algorithms.</p>
+<p><strong>See you in the next post!</strong></p>
+</section><section><h1>References</h1>
+<blockquote>
+<p>https://en.wikipedia.org/wiki/Dynamic_programming</p>
+</blockquote>
+<blockquote>
+<p>NEURAVERS - Simple Autocorrect System</p>
+</blockquote>
+</section>
+                </article>
+                <aside>
+                    <ul><li><a href="#section-heading-1">Introduction</a></li><li><a href="#section-heading-2">Problem-Solving Techniques in Dynamic Programming</a></li><li><a href="#section-heading-3">Theory in Practice</a></li><li><a href="#section-heading-4">Code for Both Approaches</a></li><li><a href="#section-heading-5">Summary</a></li><li><a href="#section-heading-6">References</a></li></ul>
+                    <button id="toc-toggle" aria-expanded="false"><img src="/images/arrow-down-off.png" alt="Table of Contents">
+                    </button>
+                </aside>
+            </div>
+        </main>
+        <footer>
+            <div>
+                <div id="footer-logo">
+                    <img src="/images/logo.png" alt="Neuravers logo">
+                    <h4>NEURAVERS</h4>
+                </div>
+                <p>&copy; 2025 Neuravers. All rights reserved.</p>
+            </div>
+        </footer>
+    </body>
+</html>

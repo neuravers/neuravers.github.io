@@ -1,0 +1,34 @@
+
+[{
+      "image": "/images/abstract3.png",
+      "title": "Example post",
+      "subcategory": "Example",
+      "date": "07 Jul 2025",
+      "readingTime": "1 min read",
+      "url": "/posts/best/example4/"
+    }
+    ,{
+      "image": "/images/abstract.png",
+      "title": "Example post",
+      "subcategory": "Example",
+      "date": "07 Jul 2025",
+      "readingTime": "1 min read",
+      "url": "/posts/best/example3/"
+    }
+    ,{
+      "image": "/images/abstract2.png",
+      "title": "Example post",
+      "subcategory": "Example",
+      "date": "07 Jul 2025",
+      "readingTime": "1 min read",
+      "url": "/posts/best/example2/"
+    }
+    ,{
+      "image": "/images/abstract.png",
+      "title": "Example post",
+      "subcategory": "Example",
+      "date": "07 Jul 2025",
+      "readingTime": "1 min read",
+      "url": "/posts/best/example/"
+    }
+    ]
