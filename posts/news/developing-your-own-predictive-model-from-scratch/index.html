@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>NEURAVERS - Developing Your Own Predictive Model from Scratch</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/header.css">
+        <link rel="stylesheet" href="/css/footer.css">
+        <link rel="stylesheet" href="/css/post.css">
+        <link rel="stylesheet" href="/css/prism.css">
+        <link
+        rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css"
+            integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP"
+            crossorigin="anonymous">
+        <!-- JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+        <script src="/js/header.js" defer></script>
+        <script src="/js/prism.js" defer></script>
+        <script src="/js/post.js" defer></script>
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"
+            integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6"
+            crossorigin="anonymous"></script>
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"
+            integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh"
+            crossorigin="anonymous"
+            onload="renderMathInElement(document.body);"></script>
+    </head>
+    <body>
+        <header>
+            <div id="logo-container">
+                <img src="/images/logo.png" alt="Neuravers logo">
+            </div>
+            <span id="blog-name">NEURAVERS</span>
+            <div id="menu-container">
+                <nav>
+                    <ul>
+                        <li><a href="/" style="color: #999999;">Home</a></li>
+                        <li><a href="/blog/" style="color: #999999;">Blog</a></li>
+                        <li><a href="/about/" style="color: #999999;">About</a></li>
+                        <li><a class="contact-button" style="color: #999999;">Contact</a></li>
+                    </ul>
+                </nav>
+                <div id="menu-button">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div id="sidebar-menu">
+                    <nav>
+                        <ul>
+                            <li><a href="/" style="color: #999999;">Home</a></li>
+                            <li><a href="/blog/" style="color: #999999;">Blog</a></li>
+                            <li><a href="/about/" style="color: #999999;">About</a></li>
+                            <li><a class="contact-button" style="color: #999999;">Contact</a></li>
+                        </ul>
+                    </nav>
+                    <div id="language-selector">
+                        <img src="/images/language-english.png" alt="English language">
+                        <span>English</span>
+                        <img src="/images/arrow-down.png" alt="Arrow down">
+                    </div>
+                </div>
+            </div>
+            <div id="language-popup">
+                There are no other languages available at the moment.
+            </div>
+        </header>
+        <main>
+            <section id="main-section" data-pagefind-body>
+                <div>
+                    <h5>Research</h5>
+                    <h5>11 min read</h5>
+                </div>
+                <h1>Developing Your Own Predictive Model from Scratch</h1>
+                <p>In this notebook, I will develop my own model architecture to predict whether someone has overweight. The goal of this notebook is to understand the general principles behind ML/DL architectures and how they learn.</p>
+                <img src="/images/abstract4.png" alt="Post main section image"/>
+                <span></span>
+            </section>
+            <div>
+                <article data-pagefind-body>
+                    <section><h1>Developing the Model</h1>
+<p>There are many AI model architectures that predict outputs based on input data. But what do they all have in common?</p>
+<ul>
+<li><strong>Data-driven adaptation:</strong> All models learn by adjusting their internal representations based on data or interactions with the environment,</li>
+<li><strong>Representation of knowledge:</strong> Each method creates some internal structure - weights, rules, clusters, or policies - that encodes what it has learned,</li>
+<li><strong>Feedback mechanism:</strong> Every model has a way to evaluate its own performance,</li>
+<li><strong>Generalization:</strong> Regardless of whether explicit labels are used, the goal is for the model to perform well on unseen data, not just memorize the training set.</li>
+</ul>
+<p>In summary, whether we are talking about supervised, unsupervised, or reinforcement learning, machine learning is about <strong>adapting an internal representation</strong> to better reflect the data or environment, guided by some measure of success or feedback signal.</p>
+</section><section><h1>Train for a future reference simple linear regression model</h1>
+<p>This section can be <strong>skipped</strong>; just take note of the <strong>accuracy</strong> of the <strong>linear regression model</strong>.</p>
+<pre><code class="language-python">import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+import numpy as np
+import matplotlib.pyplot as plt
+
+data = pd.read_csv("/kaggle/input/playground-series-s5e12/train.csv")
+
+# Split a dataset into training and testing sets
+X = data["waist_to_hip_ratio"]
+y = data["bmi"]
+
+X = X.values
+y = y.values
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, 
+    y, 
+    test_size=0.3, 
+    random_state=420
+)
+
+# Train for a future reference simple linear regression model
+X_train = X_train.reshape(-1, 1)
+X_test = X_test.reshape(-1, 1)
+y_train = y_train.reshape(-1, 1)
+y_test = y_test.reshape(-1, 1)
+
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+X_line = np.array([X.min(), X.max()])
+y_line = model.coef_[0] * X_line + model.intercept_
+fig, ax = plt.subplots()
+ax.scatter(X, y, color='royalblue', alpha=0.5)
+ax.plot(X_line, y_line, color='red', linewidth=3)
+
+# Calculate accuracy
+threshold = 25 # Overweight is defined as a BMI over 25
+
+total = X_test.shape[0]
+good_classified = 0
+for i in range(total):
+    y_true = 1 if y_test[i] &gt; threshold else 0
+    pred = 1 if model.predict(X_test[i].reshape(1, -1)) &gt; threshold else 0
+
+    if pred == y_true:
+        good_classified += 1
+
+print(f"Accuracy of LinearRegression: {good_classified / total}")
+</code></pre>
+<blockquote>
+<p>Accuracy of LinearRegression: 0.7834619047619048</p>
+</blockquote>
+<p><img src="/images/blog/developing-your-own-predictive-model-from-scratch/linear-regression.png" alt="Linear Regression"></p>
+</section><section><h1>What Do We Need?</h1>
+<p>To build a learning system, we need to go through five fundamental steps (often repeatedly):</p>
+<ol>
+<li><strong>The task the model should solve</strong> – we must clearly define the goal for which the model will be used.</li>
+<li><strong>Internal state of knowledge</strong> – the information the model stores about what it has learned.</li>
+<li><strong>Applying knowledge</strong> – the method that uses the stored knowledge to process input data and generate a response.</li>
+<li><strong>Feedback mechanism</strong> – a method for evaluating whether the model is learning.</li>
+<li><strong>Update mechanism</strong> – a method for modifying the internal state of knowledge based on feedback.</li>
+</ol>
+<h2>1. The Task the Model Should Solve</h2>
+<p>The first and key step in creating a model is to clearly define the problem it is intended to solve. Without a clear definition of the task, it will be difficult to determine <strong>what and how the model should learn</strong>. Designing systems with general intelligence is extremely challenging, so in practice we focus on <strong>narrow, well-defined tasks</strong>, which allow for a simpler and more controlled representation of knowledge.</p>
+<h2>2. Internal State of Knowledge</h2>
+<p>The next step is to decide <strong>how knowledge will be stored</strong> and <strong>what exactly the model should learn</strong>. This could be, for example, a set of hyperplane coefficients, a single geometric parameter, or an optimal data partition.</p>
+<h2>3. Applying Knowledge</h2>
+<p>The next step is to define <strong>how the model uses the stored knowledge</strong> to process input data and <strong>generate a response, e.g., a prediction</strong>. It is important to note that <strong>the method of prediction does not have to be tied to the learning process</strong> - the model may learn without using predictions and still generate outputs in a different way. A good example of this is the k-means algorithm.</p>
+<h2>4. Feedback Signal</h2>
+<p><strong>Next, we need to consider how the model will learn.</strong> For this, we must also define <strong>how the model will know if its performance is improving</strong>. The feedback signal (also called the <strong>loss function</strong>) does not have to be perfect or exact - its role is simply to indicate a direction of change, e.g., whether the internal representation should be increased, decreased, or modified in another way.</p>
+<p>Without a feedback mechanism, the model <strong>cannot assess its own progress</strong> and therefore cannot learn.</p>
+<h2>5. Update Mechanism</h2>
+<p>The final step is to <strong>define the update mechanism</strong>, which uses the feedback signal to modify the model’s internal state of knowledge. This can be implemented in many ways, depending on how the model’s knowledge is represented.</p>
+<p><strong>Designing your own model architecture is an iterative process</strong> and typically involves repeatedly moving between these five pillars, gradually refining their form and interrelationships.</p>
+</section><section><h1>The Most Use(less) Predictive Model</h1>
+<p>As I mentioned earlier, the first step in creating a model is to define the problem it is meant to solve. This will later help determine what and how the model should learn. In my case, the goal is to predict whether a person is overweight (BMI &gt; 25) based on the waist-to-hip ratio (WHR).</p>
+<p>I want to create a model that <strong>specializes in this task</strong>, rather than generally predicting values of y from X (like a standard regression model). This assumption is beneficial because I can be confident that the data will always lie in the first quadrant, since both WHR and BMI are positive. Fortunately, the necessary data has already been collected, so we do not need to worry about that.</p>
+<p>The next step is to define <strong>what the model should technically learn</strong>. This could be, for example, the coefficients of a line as in linear regression, or the optimal data splits as in decision trees.</p>
+<p>Our problem can be approached either as a <strong>classification task</strong> (BMI &gt; 25 → class 1, BMI ≤ 25 → class 0) or as a <strong>regression task</strong> (predicting the BMI value and then checking whether it exceeds 25). Inspired by regression models, I came up with the idea of teaching the model the <strong>angle by which a unit vector [1, 0] anchored at the origin should be rotated</strong> (without a parameter for shifting). This introduces additional constraints (the data must be properly rotated and shifted).</p>
+<p>Prediction would involve <strong>scaling this vector by the X value</strong> (hence our training data should be restricted to the range &lt;0,1&gt;). The Y-coordinate of the scaled vector would indicate the predicted value. (With the deep hope that no one will ever have a WHR higher than in the dataset)</p>
+<p>The model would learn the angle by treating all points (WHR, BMI) as vectors anchored at the origin. Then, the <strong>cosine similarity</strong> between them and the model’s vector would be calculated, and the resulting angles would be averaged. The closer the cosine similarity is to 1, the smaller the error made by the model.</p>
+<p>The angle is updated <strong>only once</strong>, by assigning the average angle obtained using the inverse cosine function.</p>
+<pre><code class="language-python">import numpy as np
+
+
+class MostUselessAlgorithm:
+    def __init__(self):
+        self.alpha = 0
+        self.max_x = 0
+    
+    def fit(self, X, y):
+        angles = []
+        # Needed to adjust our vector
+        self.max_x = np.max(X)
+        
+        for j in range(X.shape[0]):
+            loss = self._get_loss(X[j], y[j])
+            angle = np.arccos(loss)
+            angles.append(angle)
+
+        self.alpha = np.mean(angles)
+            
+    def predict(self, X):
+        return np.clip((X * self.get_vector())[1], 0, 1)
+
+    def _get_loss(self, X, y):
+        a = np.hstack([X, y])
+        b = X * self.get_vector()
+
+        return self._get_cosine_simlarity(a, b)
+
+    def get_vector(self):
+        return np.array([np.cos(self.alpha), np.sin(self.alpha)]) * (self.max_x / np.cos(self.alpha))
+
+    def _get_cosine_simlarity(self, a, b):
+        dot = np.dot(a, b)
+        norm_a = np.linalg.norm(a)
+        norm_b = np.linalg.norm(b)
+
+        if norm_a == 0 or norm_b == 0:
+            return 0
+        
+        return dot / (norm_a * norm_b)
+
+# Train
+most_useless_algorithm = MostUselessAlgorithm()
+most_useless_algorithm.fit(X_train, y_train)
+
+# Visualize
+alpha = most_useless_algorithm.alpha
+fig, ax = plt.subplots()
+
+vector = most_useless_algorithm.get_vector()
+
+ax.scatter(X_train, y_train, color='royalblue', alpha=0.5)
+plt.quiver(0, 0, vector[0], vector[1], angles='xy', scale_units='xy', scale=1, color='red')
+</code></pre>
+<p><img src="/images/blog/developing-your-own-predictive-model-from-scratch/most-useless-algorithm.png" alt="Most useless algorithm"></p>
+<pre><code class="language-python"># Overweight is defined as a BMI over 25
+threshold = 25
+
+total = X_test.shape[0]
+good_classified = 0
+for i in range(total):
+    y_true = 1 if y_test[i] &gt; threshold else 0
+    pred = 1 if most_useless_algorithm.predict(X_test[i]) &gt; threshold else 0
+
+    if pred == y_true:
+        good_classified += 1
+
+print(f"Accuracy of MostUselessAlgorithm (without rotating): {good_classified / total}")
+</code></pre>
+<blockquote>
+<p>Accuracy of MostUselessAlgorithm (without rotating): 0.3896809523809524</p>
+</blockquote>
+<p>As we can see, the <strong>accuracy</strong> of our model is <strong>not satisfactory</strong>. This is because our <strong>vector</strong> does not represent the <strong>general trend</strong> of the data, as the points are not properly <strong>rotated</strong> and <strong>adjusted</strong>. To address this, I will <strong>adjust the points</strong> so that they are correctly <strong>rotated</strong> and <strong>scaled</strong> to the range <code>&lt;0, 1&gt;</code>, giving the algorithm a chance to <strong>capture the overall trend</strong>.</p>
+<pre><code class="language-python">from sklearn.preprocessing import MinMaxScaler
+
+# Scaler X
+scaler_X = MinMaxScaler(feature_range=(0, 1))
+X_train_scaled = scaler_X.fit_transform(X_train)
+X_test_scaled = scaler_X.transform(X_test)
+
+# Scaler y
+scaler_y = MinMaxScaler(feature_range=(0, 1))
+y_train_scaled = scaler_y.fit_transform(y_train.reshape(-1, 1))
+y_test_scaled = scaler_y.transform(y_test.reshape(-1, 1))
+
+# Train
+most_useless_algorithm = MostUselessAlgorithm()
+most_useless_algorithm.fit(X_train_scaled, y_train_scaled)
+
+# Visualize
+alpha = most_useless_algorithm.alpha
+fig, ax = plt.subplots()
+
+vector = most_useless_algorithm.get_vector()
+
+ax.scatter(X_train_scaled, y_train_scaled, color='royalblue', alpha=0.5)
+plt.quiver(0, 0, vector[0], vector[1], angles='xy', scale_units='xy', scale=1, color='red')
+</code></pre>
+<p><img src="/images/blog/developing-your-own-predictive-model-from-scratch/most-useless-algorithm-rotated.png" alt="Most useless algorithm rotated"></p>
+<p>Now, let's see the <strong>accuracy</strong> that our model achieves.</p>
+<pre><code class="language-python"># Overweight is defined as a BMI over 25
+print(scaler_y.transform(np.array(25).reshape(-1, 1)))
+threshold = 0.4248927
+
+total = X_test_scaled.shape[0]
+good_classified = 0
+for i in range(total):
+    y_true = 1 if y_test_scaled[i] &gt; threshold else 0
+    pred = 1 if most_useless_algorithm.predict(X_test_scaled[i]) &gt; threshold else 0
+
+    if pred == y_true:
+        good_classified += 1
+
+print(f"Accuracy of MostUselessAlgorithm: {good_classified / total}")
+</code></pre>
+<blockquote>
+<p>[[0.4248927]]</p>
+</blockquote>
+<blockquote>
+<p>Accuracy of MostUselessAlgorithm: 0.7853142857142857</p>
+</blockquote>
+<p>This is a <strong>satisfactory level</strong>, comparable to the <strong>linear regression</strong> used at the beginning of this notebook. Now that we know our <strong>algorithm works</strong>, let’s focus on <strong>optimizing it</strong> and <strong>improving code clarity</strong>. We should consider which <strong>operations</strong> can be <strong>vectorized</strong>, which <strong>calculations</strong> are unnecessarily <strong>repeated</strong>, and whether we can somehow improve the <strong>numerical stability</strong> of our algorithm.</p>
+<pre><code class="language-python">import numpy as np
+
+
+class MostUselessAlgorithmOptimized(MostUselessAlgorithm):
+    def __init__(self):
+        super().__init__()
+
+    def fit(self, X, y):
+        self.max_x = np.max(X)
+        angles = self._get_angles(X, y)
+        self.alpha = np.mean(angles)
+
+    def predict(self, X):
+        return (X * (self.get_vector()[1]))
+
+    def _get_angles(self, X, y):
+        angles = np.arctan2(y, X)
+        return angles
+
+# Train
+most_useless_algorithm_optimized = MostUselessAlgorithmOptimized()
+most_useless_algorithm_optimized.fit(X_train_scaled, y_train_scaled)
+
+# Visualize
+alpha = most_useless_algorithm_optimized.alpha
+fig, ax = plt.subplots()
+
+vector = most_useless_algorithm_optimized.get_vector()
+
+ax.scatter(X_train_scaled, y_train_scaled, color='royalblue', alpha=0.5)
+plt.quiver(0, 0, vector[0], vector[1], angles='xy', scale_units='xy', scale=1, color='red')
+</code></pre>
+<p><img src="/images/blog/developing-your-own-predictive-model-from-scratch/most-useless-algorithm-optimized.png" alt="Most useless algorithm optimized"></p>
+<pre><code class="language-python"># Overweight is defined as a BMI over 25
+print(scaler_y.transform(np.array(25).reshape(-1, 1)))
+threshold = 0.4248927
+
+total = X_test_scaled.shape[0]
+good_classified = 0
+for i in range(total):
+    y_true = 1 if y_test_scaled[i] &gt; threshold else 0
+    pred = 1 if most_useless_algorithm_optimized.predict(X_test_scaled[i]) &gt; threshold else 0
+
+    if pred == y_true:
+        good_classified += 1
+
+print(f"Accuracy of MostUselessAlgorithm (optimized): {good_classified / total}")
+</code></pre>
+<blockquote>
+<p>[[0.4248927]]</p>
+</blockquote>
+<blockquote>
+<p>Accuracy of MostUselessAlgorithm (optimized): 0.7853142857142857</p>
+</blockquote>
+<p>Benchmark:</p>
+<pre><code class="language-python">import time
+import numpy as np
+
+def benchmark(func, n_runs=10, *args, **kwargs):
+    times = []
+    
+    for _ in range(n_runs):
+        start = time.perf_counter()
+        
+        func(*args, **kwargs)
+        
+        end = time.perf_counter()
+        times.append(end - start)
+    
+    median_time = np.median(times)
+    return median_time
+
+
+median_time = benchmark(most_useless_algorithm.fit, 10, X_train_scaled, y_train_scaled)
+print(f"Median time (fit, most_useless_algorithm): {median_time:.6f} s")
+
+median_time = benchmark(most_useless_algorithm.predict, 10, X_test_scaled)
+print(f"Median time (predict, most_useless_algorithm): {median_time:.6f} s")
+
+median_time = benchmark(most_useless_algorithm_optimized.fit, 10, X_train_scaled, y_train_scaled)
+print(f"Median time (fit, most_useless_algorithm_optimized): {median_time:.6f} s")
+
+median_time = benchmark(most_useless_algorithm_optimized.predict, 10, X_test_scaled)
+print(f"Median time (predict, most_useless_algorithm_optimized): {median_time:.6f} s")
+</code></pre>
+<blockquote>
+<p>Median time (fit, most_useless_algorithm): 9.140649 s</p>
+</blockquote>
+<blockquote>
+<p>Median time (predict, most_useless_algorithm): 0.003036 s</p>
+</blockquote>
+<blockquote>
+<p>Median time (fit, most_useless_algorithm_optimized): 0.014482 s</p>
+</blockquote>
+<blockquote>
+<p>Median time (predict, most_useless_algorithm_optimized): 0.000159 s</p>
+</blockquote>
+<p>As you can see, after <strong>optimization</strong> our <strong>model</strong> is <strong>significantly faster</strong>. I <strong>vectorized</strong> the Python <strong>loops</strong>, and in the <strong>predict function</strong> we now multiply only the <strong>y-coordinate</strong>, not the entire <strong>vector by X</strong>. Additionally, instead of calculating the <strong>cosine similarity</strong> and then the <strong>angles</strong>, we do essentially the same by computing the <strong>angles</strong> between the <strong>vectors</strong> and the <strong>X-axis</strong> and averaging them.</p>
+</section><section><h1>The Most Use(ful) Predictive Model</h1>
+<p>I’ll leave the <strong>development</strong> of such a <strong>model</strong> to you. As you may have noticed, it’s <strong>not an easy task</strong> and it’s an <strong>iterative process</strong>. I hope that if you build a <strong>state-of-the-art model architecture</strong>, you’ll remember your <strong>old friend</strong>… 😄</p>
+</section><section><h1>Summary</h1>
+<p>I hope I managed to present the <strong>process of designing machine learning algorithms</strong> as clearly as possible. The <strong>algorithm</strong> I presented is <strong>not perfect</strong> and has <strong>many limitations</strong>. Designing your <strong>own algorithm</strong> is very <strong>demanding</strong> and requires a lot of <strong>knowledge</strong> and <strong>patience</strong>, so I will leave this topic to <strong>specialists</strong> (or to my <strong>future self</strong>, if I pursue a <strong>PhD in AI</strong> 😄).</p>
+<p><strong>See you in the next post!</strong></p>
+</section>
+                </article>
+                <aside>
+                    <ul><li><a href="#section-heading-1">Developing the Model</a></li><li><a href="#section-heading-2">Train for a future reference simple linear regression model</a></li><li><a href="#section-heading-3">What Do We Need?</a></li><li><a href="#section-heading-4">The Most Use(less) Predictive Model</a></li><li><a href="#section-heading-5">The Most Use(ful) Predictive Model</a></li><li><a href="#section-heading-6">Summary</a></li></ul>
+                    <button id="toc-toggle" aria-expanded="false"><img src="/images/arrow-down-off.png" alt="Table of Contents">
+                    </button>
+                </aside>
+            </div>
+        </main>
+        <footer>
+            <div>
+                <div id="footer-logo">
+                    <img src="/images/logo.png" alt="Neuravers logo">
+                    <h4>NEURAVERS</h4>
+                </div>
+                <p>&copy; 2025 Neuravers. All rights reserved.</p>
+            </div>
+        </footer>
+    </body>
+</html>

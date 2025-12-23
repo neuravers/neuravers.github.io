@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const aside = document.querySelector("aside");
-    const sentinel = document.querySelector("#main-section span");
+    const sentinel = document.querySelector("#main-section img");
 
     const sentinelObserver = new IntersectionObserver(
         ([entry]) => {
@@ -43,9 +43,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Tu jest poprawiona funkcja
     function updateActiveHeader() {
-        const viewportOffset = 100; // px od góry
+        const viewportOffset = 100;
         let selectedSection = null;
 
         sections.forEach(section => {
@@ -79,7 +78,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // IntersectionObserver wywołuje updateActiveHeader, ale to będzie często mało potrzebne
     const observer = new IntersectionObserver(
         () => {
             updateActiveHeader();
@@ -93,7 +91,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     sections.forEach(section => observer.observe(section));
 
-    // Wywołujemy od razu i przy scroll/resize, żeby mieć zawsze aktualny stan
     updateActiveHeader();
     window.addEventListener("scroll", updateActiveHeader);
     window.addEventListener("resize", updateActiveHeader);

@@ -85,15 +85,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         updateActiveItem();
 
-        // ======= DODAJEMY OBSŁUGĘ DRAG MYSZĄ =======
-
         let isDragging = false;
         let startX;
         let scrollLeft;
 
         newsTrack.addEventListener('mousedown', (e) => {
             isDragging = true;
-            newsTrack.classList.add('dragging'); // możesz dodać styl dla kursora
+            newsTrack.classList.add('dragging');
             startX = e.pageX - newsTrack.offsetLeft;
             scrollLeft = newsTrack.scrollLeft;
             e.preventDefault();
@@ -113,13 +111,12 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!isDragging) return;
             e.preventDefault();
             const x = e.pageX - newsTrack.offsetLeft;
-            const walk = (x - startX) * 2; // 2 to szybkość scrollowania - możesz zmienić
+            const walk = (x - startX) * 2;
             newsTrack.scrollLeft = scrollLeft - walk;
         });
 
     });
 
-    // Clone .slider-item and append to the end of #slider
     const slider = document.querySelector('#slider');
     const sliderItems = slider.querySelectorAll('.slider-item');
     for (let i = 0; i < sliderItems.length; i++) {
@@ -141,7 +138,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const upperMain = document.querySelector('#news-container-upper > .news-item-b:first-child');
     const lower = document.querySelector('#news-container-lower');
 
-    // Domyślne stany
     upperMain.style.opacity = '1';
     upperInnerItems.forEach(item => {
         item.style.opacity = '0.9';
@@ -150,16 +146,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     upperInnerItems.forEach(item => {
         item.addEventListener('mouseenter', () => {
-            upperInnerItems.forEach(i => i.style.opacity = '0.9'); // reset
-            item.style.opacity = '1'; // aktywuj hover na tym elemencie
-            upperMain.style.opacity = '0.9'; // schowaj główne
-            lower.style.opacity = '0.9'; // schowaj lower
+            upperInnerItems.forEach(i => i.style.opacity = '0.9');
+            item.style.opacity = '1';
+            upperMain.style.opacity = '0.9';
+            lower.style.opacity = '0.9';
         });
         item.addEventListener('mouseleave', () => {
-            item.style.opacity = '0.9'; // przywróć domyśln
-            upperInnerItems.forEach(i => i.style.opacity = '0.9'); // reset
-            upperMain.style.opacity = '1'; // pokaż główne
-            lower.style.opacity = '1'; // pokaż lower
+            item.style.opacity = '0.9';
+            upperInnerItems.forEach(i => i.style.opacity = '0.9');
+            upperMain.style.opacity = '1'; 
+            lower.style.opacity = '1';
         });
     });
 

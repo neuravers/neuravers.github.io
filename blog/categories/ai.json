@@ -1,11 +1,19 @@
 
 [{
+      "image": "/images/abstract4.png",
+      "title": "Developing Your Own Predictive Model from Scratch",
+      "subcategory": "Research",
+      "date": "23 Dec 2025",
+      "readingTime": "11 min read",
+      "url": "/posts/news/developing-your-own-predictive-model-from-scratch/"
+    }
+    ,{
       "image": "/images/abstract.png",
       "title": "Introduction to CNNs",
       "subcategory": "Computer Vision",
       "date": "17 Aug 2025",
       "readingTime": "7 min read",
-      "url": "/posts/news/introduction-to-cnns/"
+      "url": "/posts/introduction-to-cnns/"
     }
     ,{
       "image": "/images/abstract3.png",

@@ -96,14 +96,20 @@ document.addEventListener("DOMContentLoaded", () => {
             paginationContainer.innerHTML = ""; // Ukryj przycisk, jeśli koniec
         }
     }
-
+    
+    function truncateTitle(title, maxLength = 25) {
+        if (!title) return 'Untitled Post';
+        let trimmed = title.slice(0, maxLength).trimEnd();
+        return trimmed.length < title.length ? trimmed + "..." : trimmed;
+    }
+    
     function postHtml(post) {
         return `
     <div class="slider-item">
       <a href="${post.url}">
         <img src="${post.image || 'images/default.png'}" alt="${post.title || 'Untitled Post'}">
         <div>
-          <h4>${post.title || 'Untitled Post'}</h4>
+          <h4>${truncateTitle(post.title)}</h4>
           <h4>${post.subcategory || 'Uncategorized'}</h4>
           <span>
             <p>${post.date || 'Unknown Date'}</p>
