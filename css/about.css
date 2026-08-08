@@ -1,0 +1,137 @@
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  50.01%, 100% {
+    opacity: 0;
+  }
+}
+
+#about-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#about-content{
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    text-align: left;
+    gap: 2rem;
+    margin-top: 8rem;
+}
+
+#about-content>div {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.about-content-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.about-content-item h2 {
+    margin-bottom: 0.5rem;
+}
+
+section a {
+    text-decoration: none;
+    text-decoration-color: transparent;
+}
+
+#projects-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#projects-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 4rem;
+    max-width: 980px;
+}
+
+.project-card {
+    max-width: 450px;
+    height: auto
+}
+
+.project-card > img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 9px;
+}
+
+
+.project-card >div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.project-card h4 {
+    color: white;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    color: #d1d5db;
+    font-weight: 700;
+    font-size: 0.85rem;
+
+}
+
+.project-description {
+    color: #999999;
+    font-size: 0.85rem;
+}
+
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  width: 10px;
+  animation: blink 1s step-start infinite;
+}
+
+@media screen and (min-width: 500px) {
+    #projects-content {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (min-width: 793px) {
+    .project-card {
+        max-width: 300px;
+    }
+}
+
+@media screen and (min-width: 750px) {
+    #about-content>div {
+        flex-direction: row;
+        gap: 2rem;
+    }
+}
+
+@media screen and (min-width: 900px) {
+
+}
+
+@media screen and (min-width: 1150px) {
+
+}
