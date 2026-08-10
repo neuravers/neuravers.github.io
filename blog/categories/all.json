@@ -1,19 +1,19 @@
 
 [{
-            "image": "/images/abstract4.png",
-            "title": "Developing Your Own Predictive Model from Scratch",
-            "subcategory": "Research",
-            "date": "23 Dec 2025",
-            "readingTime": "11 min read",
-            "url": "/posts/news/developing-your-own-predictive-model-from-scratch/"
-        }
-        ,{
             "image": "/images/abstract2.png",
             "title": "Introduction to DP",
             "subcategory": "Dynamic Programming",
-            "date": "02 Nov 2025",
+            "date": "23 Dec 2025",
             "readingTime": "11 min read",
             "url": "/posts/news/introduction-to-dp/"
+        }
+        ,{
+            "image": "/images/abstract4.png",
+            "title": "Developing Your Own Predictive Model from Scratch",
+            "subcategory": "Research",
+            "date": "02 Nov 2025",
+            "readingTime": "11 min read",
+            "url": "/posts/news/developing-your-own-predictive-model-from-scratch/"
         }
         ,{
             "image": "/images/abstract.png",

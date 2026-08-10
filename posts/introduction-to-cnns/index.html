@@ -81,7 +81,7 @@
                     <h5>7 min read</h5>
                 </div>
                 <h1>Introduction to CNNs</h1>
-                <p>A short intro post about convolutional neural networks — what they’re used for, how they’re built, and a few thoughts along the way. I’ll just go over the basics of how these networks learn. This post is meant to be a good starting point for diving deeper into CNNs.</p>
+                <p>A short intro post about convolutional neural networks - what they’re used for, how they’re built, and a few thoughts along the way. I’ll just go over the basics of how these networks learn. This post is meant to be a good starting point for diving deeper into CNNs.</p>
                 <img src="/images/abstract.png" alt="Post main section image"/>
                 <span></span>
             </section>
@@ -89,7 +89,7 @@
                 <article data-pagefind-body>
                     <section><h1>Introduction</h1>
 <p>Convolutional neural networks have wide applications in the fields of <strong>computer vision</strong>, <strong>signal processing</strong>, and <strong>time series analysis</strong>.
-One of the most fascinating applications is <strong>computer vision</strong> – it gives machines a kind of "sight", enabling them to interact more effectively with the world around us.</p>
+One of the most fascinating applications is <strong>computer vision</strong> - it gives machines a kind of "sight", enabling them to interact more effectively with the world around us.</p>
 <p>A good example is <strong>autonomous cars</strong>, which are capable of driving on their own. CNNs form part of larger models, which nowadays often also make use of <strong>Transformers</strong> (<a href="https://arxiv.org/pdf/1706.03762">Attention Is All You Need</a>).</p>
 <p><img src="/images/blog/introduction-to-cnns/yolo.png" alt="YOLO Object Detection"></p>
 <h2>Advantages of CNNs over Classical Neural Networks</h2>
@@ -98,12 +98,12 @@ One of the most fascinating applications is <strong>computer vision</strong> –
 <p><img src="/images/blog/introduction-to-cnns/cnn-accuracy.png" alt="CNN Accuracy">
 <a href="https://arxiv.org/pdf/2010.01369">https://arxiv.org/pdf/2010.01369</a>
 <br></p>
-<p>This is achieved through the use of <strong>filters (often called kernels in the literature)</strong>. A filter is a small weight matrix (e.g., 3×3, 5×5) that slides over the image and performs a convolution operation (<a href="https://ezyang.github.io/convolution-visualizer/">Visual Example</a>). If you are a mathematician, you might say: <strong>"Hey, but this is actually cross-correlation, not convolution!"</strong> – and you would be correct. In <strong>cross-correlation</strong>, the signal (or filter) is not flipped.
+<p>This is achieved through the use of <strong>filters (often called kernels in the literature)</strong>. A filter is a small weight matrix (e.g., 3×3, 5×5) that slides over the image and performs a convolution operation (<a href="https://ezyang.github.io/convolution-visualizer/">Visual Example</a>). If you are a mathematician, you might say: <strong>"Hey, but this is actually cross-correlation, not convolution!"</strong> - and you would be correct. In <strong>cross-correlation</strong>, the signal (or filter) is not flipped.
 However, in practice, we usually call it <strong>convolution</strong> because the learning algorithm can adjust the filter weights if flipping is necessary. In this sense, calling it convolution is a more general statement. The reduced number of parameters also benefits the learning process, making the network <strong>more resistant to overfitting (given a sufficiently large dataset)</strong> and allowing it to <strong>learn faster</strong>. Additionally, these networks <strong>generalize better</strong> and <strong>require less training data</strong> than classical neural networks to achieve higher accuracy.</p>
 <p><img src="/images/blog/introduction-to-cnns/cnn-generalization.png" alt="CNN Generalization">
 <a href="https://arxiv.org/pdf/2010.01369">https://arxiv.org/pdf/2010.08515</a>
 <br></p>
-<p>This stems from the built-in <strong>inductive bias</strong> – in convolutional networks, filters learn to detect local patterns (e.g., edges, corners), and successive layers combine these features into increasingly complex structures. As a result, the network <strong>assumes certain properties of images</strong> – locality, translational invariance, and weight sharing – instead of learning them from scratch.</p>
+<p>This stems from the built-in <strong>inductive bias</strong> - in convolutional networks, filters learn to detect local patterns (e.g., edges, corners), and successive layers combine these features into increasingly complex structures. As a result, the network <strong>assumes certain properties of images</strong> - locality, translational invariance, and weight sharing - instead of learning them from scratch.</p>
 </section><section><h1>Convolution: The Mathematical Operation Behind CNNs</h1>
 <p>The <strong>convolution operation</strong> in mathematics is defined as follows (<strong>continuous case</strong>):</p>
 <p>$$
@@ -140,19 +140,19 @@ W_\text{out} = \left\lfloor \frac{W - F + 2P}{S} \right\rfloor + 1
 $$</p>
 <p><strong>Where</strong>:</p>
 <ul>
-<li><strong>H</strong> – height of the input image</li>
-<li><strong>W</strong> – width of the input image</li>
-<li><strong>P</strong> – padding (border with values usually set to 0)</li>
-<li><strong>S</strong> – stride (instead of moving the filter by 1, we move it by S pixels)</li>
+<li><strong>H</strong> - height of the input image</li>
+<li><strong>W</strong> - width of the input image</li>
+<li><strong>P</strong> - padding (border with values usually set to 0)</li>
+<li><strong>S</strong> - stride (instead of moving the filter by 1, we move it by S pixels)</li>
 </ul>
 <p>In short: we first <strong>compute the total dimension of the input matrix including padding</strong> and treat this as our effective input. Then we <strong>subtract the filter size (this gives the number of positions the filter can move by 1 in the remaining space)</strong>, <strong>divide by the stride S (we skip every S-th position)</strong>, and finally <strong>add 1 (remember that the filter starts at the top-left corner)</strong>.</p>
 <p><strong>Padding can be either</strong>:</p>
 <ul>
-<li><strong>valid</strong> – no padding (output size is smaller than the input)</li>
-<li><strong>same</strong> – padding is applied so that the output has the same size as the input
+<li><strong>valid</strong> - no padding (output size is smaller than the input)</li>
+<li><strong>same</strong> - padding is applied so that the output has the same size as the input
 <br></li>
 </ul>
-<p><strong>Max-Pooling</strong> works on the same principle as a sliding window, but it performs a different operation – it takes the <strong>maximum value</strong> within the window. As a result, there are <strong>no learnable parameters</strong> in this layer. Besides max-pooling, there is also <strong>average-pooling</strong>, which computes the <strong>arithmetic mean</strong> of all elements in the window. They are used to reduce the size of the input and help make feature detectors more invariant to the features’ positions within the input.</p>
+<p><strong>Max-Pooling</strong> works on the same principle as a sliding window, but it performs a different operation - it takes the <strong>maximum value</strong> within the window. As a result, there are <strong>no learnable parameters</strong> in this layer. Besides max-pooling, there is also <strong>average-pooling</strong>, which computes the <strong>arithmetic mean</strong> of all elements in the window. They are used to reduce the size of the input and help make feature detectors more invariant to the features’ positions within the input.</p>
 <p><strong>Flatten</strong> combines the input into a <strong>single vector of numbers</strong>, converting multi-dimensional data (like feature maps) into a one-dimensional array for the next layer, typically a fully connected (dense) layer.</p>
 <p><strong>Dropout</strong> is a regularization technique used to <strong>prevent overfitting</strong> in neural networks. During training, it <strong>randomly "drops" a fraction of neurons</strong> (sets their output to zero) in a layer for each forward pass. This forces the network to <strong>not rely too heavily on any single neuron</strong> and helps it <strong>generalize better</strong> to new data.</p>
 </section><section><h1>CNN Learning</h1>
@@ -190,7 +190,7 @@ $$</p>
 <li>
 <p><strong>Repeat</strong></p>
 <ul>
-<li><strong>Steps 1–4</strong> are repeated for many <strong>images</strong> and <strong>training epochs</strong>.</li>
+<li><strong>Steps 1-4</strong> are repeated for many <strong>images</strong> and <strong>training epochs</strong>.</li>
 <li>Over time, the <strong>network</strong> learns to <strong>generalize patterns</strong> better and <strong>classify new images correctly</strong>.</li>
 </ul>
 </li>
